@@ -1,0 +1,345 @@
+/* =========================================
+   ПОЯСНИТЕЛЬНАЯ ЗАПИСКА — ОБЩИЕ СТИЛИ
+   Цветовая схема: colorscheme.ru
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary-color:   #2F9292;
+    --secondary-color: #35AE5E;
+    --dark-color:      #07444A;
+    --light-color:     #83E3E3;
+    --accent-color:    #81E3E3;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* ===== ШАПКА ===== */
+.site-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: 90px;
+}
+.header-left { display: flex; align-items: center; gap: 20px; width: 100%; }
+.logo-container {
+    width: 60px; height: 60px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; overflow: hidden; background-color: white;
+}
+.logo-img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
+.college-info { flex: 1; min-width: 0; }
+.college-info h1 { font-size: 1.2rem; margin-bottom: 5px; line-height: 1.3; }
+.college-info p { font-size: 0.9rem; opacity: 0.9; }
+
+/* ===== ЛЕВОЕ МЕНЮ ===== */
+.sidebar {
+    width: 320px;
+    background-color: var(--dark-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.toc-menu { flex: 1; padding: 20px 14px; overflow: hidden; }
+.toc-menu ol, .toc-menu ul { list-style: none; }
+.toc-menu > ol > li { margin-bottom: 6px; }
+.toc-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    transition: all 0.25s;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.toc-menu a:hover { background-color: rgba(255,255,255,0.12); border-left-color: var(--secondary-color); }
+.toc-menu a.active { background-color: var(--primary-color); border-left-color: var(--light-color); }
+
+.toc-menu .toc-section-header {
+    display: block; padding: 9px 12px;
+    background-color: rgba(255,255,255,0.08);
+    color: var(--light-color);
+    font-weight: bold; font-size: 0.92rem;
+    border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.3px;
+    margin-top: 4px; cursor: default;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.toc-menu .sub-list {
+    margin: 4px 0 6px 18px;
+    padding-left: 0;
+    border-left: 2px solid rgba(131,227,227,0.25);
+}
+.toc-menu .sub-list li { margin: 3px 0; }
+.toc-menu .sub-list a {
+    padding: 6px 10px; font-size: 0.83rem;
+    background-color: transparent;
+    color: rgba(255,255,255,0.85); border-radius: 3px;
+}
+.toc-menu .sub-list a:hover { background-color: rgba(255,255,255,0.08); color: white; }
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+    min-width: 0;
+}
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+.content-center {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== ТИТУЛЬНЫЙ ===== */
+.content-header {
+    margin-bottom: 14px; text-align: center; padding: 14px 20px;
+    background-color: white; border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+.content-header h1 { color: var(--dark-color); font-size: 1.8rem; margin-bottom: 8px; }
+.content-header h2 { color: var(--primary-color); font-size: 1.1rem; font-weight: normal; }
+.content-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+}
+.screenshot {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+}
+
+/* ===== ТЕКСТ ===== */
+.text-content {
+    background-color: transparent;
+    padding: 10px 10px 40px 10px;
+    width: 100%;
+}
+.page-title {
+    color: var(--dark-color); font-size: 2.2rem; margin-bottom: 30px;
+    text-align: center; padding-bottom: 20px;
+    border-bottom: 2px solid var(--light-color);
+}
+.section-title {
+    color: var(--primary-color); font-size: 1.5rem;
+    margin: 25px 0 15px 0; padding-left: 12px;
+    border-left: 4px solid var(--primary-color);
+    scroll-margin-top: 110px;
+}
+.sub-title { color: var(--dark-color); font-size: 1.2rem; margin: 20px 0 12px 0; font-weight: 600; }
+.text-paragraph { color: #333; line-height: 1.7; font-size: 1.05rem; margin-bottom: 15px; text-align: justify; }
+.text-content ul, .text-content ol { margin: 10px 0 18px 30px; line-height: 1.7; font-size: 1.05rem; }
+.text-content li { margin-bottom: 8px; color: #333; }
+
+.cross-link {
+    display: inline-block;
+    padding: 10px 18px; margin: 6px 0;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    text-decoration: none; border-radius: 4px;
+    font-weight: 500;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.25s;
+}
+.cross-link:hover { background-color: var(--accent-color); transform: translateX(4px); }
+
+/* Термины и сокращения */
+.term-item {
+    background-color: #f8f9fa; border-left: 4px solid var(--primary-color);
+    padding: 14px 18px; margin-bottom: 12px; border-radius: 4px;
+}
+.term-name { font-weight: bold; color: var(--dark-color); font-style: italic; }
+
+.abbr-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.abbr-table td { padding: 10px 14px; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+.abbr-table td:first-child {
+    width: 140px; font-weight: bold; color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+}
+
+/* Таблицы */
+.data-table {
+    width: 100%; border-collapse: collapse;
+    margin: 14px 0 20px; font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.data-table th { background-color: var(--primary-color); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+.data-table td { padding: 9px 12px; border: 1px solid #e0e0e0; color: #333; }
+.data-table tr:nth-child(even) td { background-color: #f8fcfc; }
+.data-table tr:hover td { background-color: var(--light-color); }
+.table-caption { font-size: 0.95rem; color: var(--dark-color); margin-bottom: 4px; font-style: italic; }
+
+/* Кабельный журнал */
+.cable-journal-wrap { overflow-x: auto; margin: 14px 0 20px; }
+.cable-journal { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 900px; }
+.cable-journal th, .cable-journal td { border: 1px solid #d0d0d0; padding: 5px 7px; vertical-align: middle; }
+.cable-journal th { background-color: var(--primary-color); color: white; font-weight: 600; text-align: center; }
+.cable-journal td:first-child { font-weight: bold; color: var(--primary-color); white-space: nowrap; }
+.cable-journal tr:nth-child(even) td { background-color: #f8fcfc; }
+.cable-journal .section-row td {
+    background-color: var(--dark-color); color: white;
+    text-align: center; font-weight: bold; padding: 6px;
+}
+
+/* Код */
+.code-block {
+    background-color: #07444A; color: #83E3E3;
+    padding: 16px 20px; border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem; line-height: 1.6;
+    overflow-x: auto; margin: 12px 0 18px; white-space: pre;
+}
+
+/* Изображения */
+.figure { text-align: center; margin: 20px 0; }
+.figure img { max-width: 100%; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.figure-caption { margin-top: 8px; font-style: italic; color: var(--dark-color); font-size: 0.95rem; }
+
+/* ===== ПРАВАЯ ПАНЕЛЬ ===== */
+.right-sidebar {
+    width: 230px; background-color: white;
+    border-left: 1px solid #e0e0e0;
+    padding: 25px 16px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    overflow-y: auto;
+    height: 100%;
+}
+.right-sidebar-title {
+    font-size: 0.85rem; color: var(--dark-color);
+    text-transform: uppercase; letter-spacing: 0.5px;
+    font-weight: bold; margin-bottom: 12px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--light-color);
+}
+.right-menu ul { list-style: none; }
+.right-menu li { margin-bottom: 10px; }
+.right-menu a {
+    color: var(--dark-color); text-decoration: none;
+    padding: 12px 16px; display: block;
+    background-color: #f8f9fa; border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s;
+    font-size: 0.92rem; font-weight: 500;
+}
+.right-menu a:hover {
+    background-color: var(--light-color);
+    transform: translateX(-3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+.right-menu a.active { background-color: var(--primary-color); color: white; border-left-color: var(--dark-color); }
+
+/* Приложения */
+.applications-list { display: flex; flex-direction: column; gap: 22px; max-width: 850px; margin: 0 auto; }
+.application-card {
+    background-color: #f8f9fa; border-radius: 8px;
+    padding: 22px 25px;
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.application-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); background-color: #f0f8f8; }
+.application-title { color: var(--dark-color); font-size: 1.35rem; font-weight: bold; margin-bottom: 8px; }
+.application-description { color: #555; line-height: 1.6; font-size: 1rem; margin-bottom: 14px; }
+.app-hyperlink {
+    display: inline-block; padding: 9px 20px;
+    background-color: var(--primary-color); color: white;
+    text-decoration: none; border-radius: 4px;
+    font-weight: 500; transition: all 0.3s;
+}
+.app-hyperlink:hover { background-color: var(--dark-color); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+
+.scheme-container { text-align: center; margin-top: 20px; }
+.scheme-image { max-width: 100%; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+
+/* Футер */
+.main-footer {
+    background-color: var(--dark-color); color: white;
+    padding: 14px 30px; text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    flex-shrink: 0;
+}
+.footer-content { max-width: 800px; margin: 0 auto; line-height: 1.4; }
+.footer-content p { font-size: 1rem; margin: 8px 0; }
+
+/* Адаптив */
+@media (max-width: 1200px) { .sidebar { width: 280px; } .right-sidebar { width: 200px; } }
+@media (max-width: 1024px) {
+    .sidebar { width: 250px; }
+    .right-sidebar { width: 190px; padding: 20px 12px; }
+    .content-center { padding: 20px; }
+    .text-content { padding: 30px; }
+    .page-title { font-size: 1.9rem; }
+}
+@media (max-width: 768px) {
+    body { flex-direction: column; height: auto; overflow: auto; }
+    .site-header { position: relative; flex-direction: column; text-align: center; padding: 15px; height: auto; }
+    .header-left { flex-direction: column; gap: 10px; }
+    .sidebar { width: 100%; margin-top: 0; height: auto; overflow: visible; order: 1; }
+    .toc-menu { max-height: none; overflow: hidden; }
+    .main-content { width: 100%; margin-top: 0; height: auto; overflow: visible; order: 2; }
+    .content-wrapper { flex-direction: column; overflow: visible; }
+    .right-sidebar { width: 100%; height: auto; border-left: none; border-top: 1px solid #e0e0e0; padding: 20px; order: 1; overflow: visible; }
+    .content-center { padding: 20px; height: auto; overflow-y: visible; order: 2; }
+    .text-content { padding: 20px; min-height: 300px; }
+    .page-title { font-size: 1.6rem; }
+    .main-footer { padding: 15px 20px; order: 3; }
+}
+@media (max-width: 480px) {
+    .college-info h1 { font-size: 1rem; }
+    .college-info p { font-size: 0.8rem; }
+    .page-title { font-size: 1.4rem; }
+}
+

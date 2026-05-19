@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-технологии — Пояснительная записка</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="../картинки/лого.jpg" alt="Логотип колледжа" class="logo-img">
+            </div>
+            <div class="college-info">
+                <h1>ГБПОУ «Пермский политехнический колледж имени Н.Г. Славянова»</h1>
+                <p>09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <nav class="toc-menu">
+            <ol>
+                <li><a href="index.html">Титульный лист</a></li>
+                <li><a href="terms.html">Термины и определения</a></li>
+                <li><a href="abbreviations.html">Перечень сокращений и обозначений</a></li>
+
+                <li><span class="toc-section-header">1 Теоретическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="theoretical.html#section1">Электронный образовательный ресурс</a></li>
+                        <li><a href="theoretical.html#section2">Виды сайтов, учебные сайты</a></li>
+                        <li><a href="theoretical.html#section3">Особенности учебного сайта</a></li>
+                        <li><a href="theoretical.html#section4">Этапы разработки сайта</a></li>
+                        <li><a href="theoretical.html#section5">Анализ готовых решений</a></li>
+                    </ol>
+                </li>
+
+                <li><span class="toc-section-header">2 Практическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="practical.html#p1">Разработка макета</a></li>
+                        <li><a href="practical.html#p2">Вёрстка</a></li>
+                        <li><a href="practical.html#p3">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p4">Разработка макета</a></li>
+                        <li><a href="practical.html#p5">Вёрстка</a></li>
+                        <li><a href="practical.html#p6">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p7">Разработка макета</a></li>
+                        <li><a href="practical.html#p8">Вёрстка</a></li>
+                        <li><a href="practical.html#p9">Наполнение контентом</a></li>
+                    </ol>
+                </li>
+
+                <li><a href="conclusion.html">Заключение</a></li>
+                <li><a href="list.html">Список использованных источников</a></li>
+                <li><a href="application.html">Приложения</a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="content-center">
+                <div class="text-content">
+                    <h1 class="page-title">4 Веб-технологии</h1>
+
+                    <div class="section-title">4.1 Подготовительный этап</div>
+                    <p class="text-paragraph"><strong>Цель сайта:</strong> оформление пояснительной записки к дипломному проекту в виде интерактивного веб-сайта, доступного для просмотра в любом браузере.</p>
+                    <p class="text-paragraph"><strong>Задачи сайта:</strong></p>
+                    <ul>
+                        <li>отобразить все разделы пояснительной записки;</li>
+                        <li>обеспечить удобную навигацию (содержание + меню для защиты);</li>
+                        <li>соответствовать требованиям к макету и цветовой схеме;</li>
+                        <li>реализовать резиновую вёрстку без использования JavaScript.</li>
+                    </ul>
+
+                    <div class="section-title">4.2 Вёрстка</div>
+                    <p class="text-paragraph">Сайт реализован на чистых HTML5 и CSS3. Применён принцип отдельного файла на каждую страницу с общим CSS-файлом <code>css/style.css</code>. Для вёрстки используется flexbox-модель и медиазапросы для адаптивности.</p>
+
+                    <p class="text-paragraph">Принцип вложенности тегов:</p>
+                    <div class="code-block">&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Пояснительная записка&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class="site-header"&gt; ... &lt;/header&gt;
+    &lt;div class="sidebar"&gt;
+        &lt;nav class="toc-menu"&gt; ... &lt;/nav&gt;
+    &lt;/div&gt;
+    &lt;div class="main-content"&gt;
+        &lt;div class="content-wrapper"&gt;
+            &lt;!-- центральный контент --&gt;
+            &lt;!-- правое меню --&gt;
+        &lt;/div&gt;
+        &lt;footer class="main-footer"&gt; ... &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+
+                    <div class="section-title">4.3 Дизайн</div>
+                    <p class="text-paragraph"><strong>Макет:</strong> трёхколоночная резиновая компоновка. Шапка фиксированная, высота 90px. Левое меню — 320px (содержание). Правое меню — 230px (для защиты). Центральная область — резиновая.</p>
+
+                    <p class="text-paragraph"><strong>Цветовая схема</strong> подобрана на сайте colorscheme.ru. Светлая тема, монохромная (один тон с разной насыщенностью).</p>
+
+                    <div class="table-caption">Таблица 4.1 — Цвета схемы</div>
+                    <table class="data-table">
+                        <tr><th>Переменная CSS</th><th>HEX-код</th><th>Применение</th></tr>
+                        <tr><td>--primary-color</td><td>#2F9292</td><td>Шапка, кнопки</td></tr>
+                        <tr><td>--secondary-color</td><td>#35AE5E</td><td>Акценты</td></tr>
+                        <tr><td>--dark-color</td><td>#07444A</td><td>Меню, заголовки</td></tr>
+                        <tr><td>--light-color</td><td>#83E3E3</td><td>Подложки, hover</td></tr>
+                        <tr><td>--accent-color</td><td>#81E3E3</td><td>Декоративные элементы</td></tr>
+                    </table>
+
+                    <div class="figure">
+                        <img src="../картинки/цветовой круг.jpg" alt="Цветовой круг" class="screenshot">
+                        <div class="figure-caption">Рисунок 4.1 — Цветовой круг схемы</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/номера цветов.jpg" alt="Номера цветов" class="screenshot">
+                        <div class="figure-caption">Рисунок 4.2 — HEX-коды цветовой схемы</div>
+                    </div>
+
+                    <p class="text-paragraph"><strong>Шрифты:</strong> Arial (без засечек) — для основного текста и заголовков. Для блоков кода — Courier New.</p>
+
+                    <div class="sub-title">Руководство по стилю</div>
+                    <div class="table-caption">Таблица 4.2 — Руководство по стилю</div>
+                    <table class="data-table">
+                        <tr><th>Элемент</th><th>Шрифт</th><th>Размер</th><th>Цвет</th></tr>
+                        <tr><td>Заголовок h1 (страница)</td><td>Arial</td><td>2,2 rem</td><td>#07444A</td></tr>
+                        <tr><td>Подзаголовок (section-title)</td><td>Arial</td><td>1,5 rem</td><td>#2F9292</td></tr>
+                        <tr><td>Основной текст</td><td>Arial</td><td>1,05 rem</td><td>#333333</td></tr>
+                        <tr><td>Термины</td><td>Arial italic</td><td>1,05 rem</td><td>#07444A</td></tr>
+                        <tr><td>Ссылки (обычная)</td><td>Arial</td><td>0,95 rem</td><td>#FFFFFF / #07444A</td></tr>
+                        <tr><td>Ссылки (hover)</td><td>Arial</td><td>0,95 rem</td><td>#83E3E3</td></tr>
+                        <tr><td>Таблицы — заголовок</td><td>Arial</td><td>0,95 rem</td><td>#FFFFFF на #2F9292</td></tr>
+                        <tr><td>Таблицы — текст</td><td>Arial</td><td>0,95 rem</td><td>#333333</td></tr>
+                    </table>
+
+                    <div class="figure">
+                        <img src="../картинки/шаблон.jpg" alt="Шаблон сайта" class="screenshot">
+                        <div class="figure-caption">Рисунок 4.3 — Шаблон сайта (макет)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/светлая тема.jpg" alt="Светлая тема" class="screenshot">
+                        <div class="figure-caption">Рисунок 4.4 — Светлая тема (главная страница)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/темная тема.jpg" alt="Тёмная тема" class="screenshot">
+                        <div class="figure-caption">Рисунок 4.5 — Тёмная тема (альтернативный вариант)</div>
+                    </div>
+
+                    <div class="section-title">4.4 Технические и программные средства</div>
+                    <div class="table-caption">Таблица 4.3 — Используемые технологии</div>
+                    <table class="data-table">
+                        <tr><th>Технология / ПО</th><th>Версия</th><th>Назначение</th></tr>
+                        <tr><td>HTML</td><td>HTML5</td><td>Структура и разметка</td></tr>
+                        <tr><td>CSS</td><td>CSS3</td><td>Оформление, цвета, шрифты, адаптивность</td></tr>
+                        <tr><td>Visual Studio Code</td><td>1.89</td><td>Редактор кода</td></tr>
+                        <tr><td>Google Chrome</td><td>124</td><td>Тестирование</td></tr>
+                        <tr><td>colorscheme.ru</td><td>—</td><td>Подбор цветовой схемы</td></tr>
+                    </table>
+
+                    <div class="section-title">4.5 Разработка навигации. Физическая схема</div>
+                    <p class="text-paragraph">Каждый раздел пояснительной записки реализован в виде отдельного HTML-файла. Все страницы используют общий CSS.</p>
+
+                    <div class="table-caption">Таблица 4.4 — Физическая схема (файлы и страницы)</div>
+                    <table class="data-table">
+                        <tr><th>Файл</th><th>Наименование страницы</th></tr>
+                        <tr><td>index.html</td><td>Титульный лист</td></tr>
+                        <tr><td>terms.html</td><td>Термины и определения</td></tr>
+                        <tr><td>abbreviations.html</td><td>Перечень сокращений</td></tr>
+                        <tr><td>introduction.html</td><td>Введение</td></tr>
+                        <tr><td>theoretical.html</td><td>1 Теоретическая часть</td></tr>
+                        <tr><td>practical.html</td><td>2 Практическая часть</td></tr>
+                        <tr><td>project.html</td><td>Проектная часть</td></tr>
+                        <tr><td>operation.html</td><td>Эксплуатационная часть</td></tr>
+                        <tr><td>economy.html</td><td>Экономическая часть</td></tr>
+                        <tr><td>technology.html</td><td>Веб-технологии</td></tr>
+                        <tr><td>conclusion.html</td><td>Заключение</td></tr>
+                        <tr><td>list.html</td><td>Список источников</td></tr>
+                        <tr><td>application.html</td><td>Приложения (содержание)</td></tr>
+                        <tr><td>application1.html – application8.html</td><td>Приложения А – З</td></tr>
+                        <tr><td>css/style.css</td><td>Общая таблица стилей</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                <nav class="right-menu">
+                    <ul>
+                        <li><a href="introduction.html">Введение</a></li>
+                        <li><a href="project.html">Проектная часть</a></li>
+                        <li><a href="operation.html">Эксплуатационная часть</a></li>
+                        <li><a href="economy.html">Экономическая часть</a></li>
+                        <li><a href="technology.html" class="active">Веб-технология</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>Андреев Никита Александрович — 09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

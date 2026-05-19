@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проектная часть — Пояснительная записка</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="../картинки/лого.jpg" alt="Логотип колледжа" class="logo-img">
+            </div>
+            <div class="college-info">
+                <h1>ГБПОУ «Пермский политехнический колледж имени Н.Г. Славянова»</h1>
+                <p>09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <nav class="toc-menu">
+            <ol>
+                <li><a href="index.html">Титульный лист</a></li>
+                <li><a href="terms.html">Термины и определения</a></li>
+                <li><a href="abbreviations.html">Перечень сокращений и обозначений</a></li>
+
+                <li><span class="toc-section-header">1 Теоретическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="theoretical.html#section1">Электронный образовательный ресурс</a></li>
+                        <li><a href="theoretical.html#section2">Виды сайтов, учебные сайты</a></li>
+                        <li><a href="theoretical.html#section3">Особенности учебного сайта</a></li>
+                        <li><a href="theoretical.html#section4">Этапы разработки сайта</a></li>
+                        <li><a href="theoretical.html#section5">Анализ готовых решений</a></li>
+                    </ol>
+                </li>
+
+                <li><span class="toc-section-header">2 Практическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="practical.html#p1">Разработка макета</a></li>
+                        <li><a href="practical.html#p2">Вёрстка</a></li>
+                        <li><a href="practical.html#p3">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p4">Разработка макета</a></li>
+                        <li><a href="practical.html#p5">Вёрстка</a></li>
+                        <li><a href="practical.html#p6">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p7">Разработка макета</a></li>
+                        <li><a href="practical.html#p8">Вёрстка</a></li>
+                        <li><a href="practical.html#p9">Наполнение контентом</a></li>
+                    </ol>
+                </li>
+
+                <li><a href="conclusion.html">Заключение</a></li>
+                <li><a href="list.html">Список использованных источников</a></li>
+                <li><a href="application.html">Приложения</a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="content-center">
+                <div class="text-content">
+                    <h1 class="page-title">1 Проектная часть</h1>
+
+                    <p class="text-paragraph">Проектная часть посвящена разработке архитектуры структурированной кабельной сети офиса интернет-магазина. В разделе рассматриваются принципы построения сети, выбор активного и пассивного оборудования, организация кабельной системы, размещение оборудования в ТКШ, а также представлены схемы уровней L1, L2 и L3.</p>
+
+                    <div class="section-title">1.1 Описание архитектуры сети</div>
+                    <p class="text-paragraph">Сеть построена по иерархической трёхуровневой модели: ядро (Core), распределение (Distribution) и доступ (Access). Применяется сегментирование по VLAN с разделением трафика на серверный, пользовательский, CCTV и MGMT-сегменты, а также выделением DMZ для публичных сервисов.</p>
+                    <p class="text-paragraph">Проект охватывает два независимых объекта: B1 (главное здание) и B2 (филиал). Каждый объект имеет собственный интернет-канал, межсетевой экран, коммутацию и серверную инфраструктуру. Межсетевое соединение между B1 и B2 не реализовано — каждое здание работает автономно. Внутри каждого объекта применяется единая система маркировки оборудования и кабельных линий.</p>
+
+                    <div class="section-title">1.2 Выбор активного оборудования</div>
+                    <p class="text-paragraph">В качестве активного оборудования выбраны управляемые коммутаторы серии D-Link, поддерживающие VLAN, STP, LACP и статическую маршрутизацию L3.</p>
+
+                    <div class="table-caption">Таблица 1.1 — Состав активного оборудования</div>
+                    <table class="data-table">
+                        <tr><th>Устройство</th><th>Модель</th><th>Назначение</th><th>Кол-во</th></tr>
+                        <tr><td>Маршрутизатор</td><td>D-Link DSR-1000AC</td><td>WAN / Edge / VPN</td><td>2</td></tr>
+                        <tr><td>Межсетевой экран</td><td>Cisco ASA 5505</td><td>inside / outside / dmz</td><td>2</td></tr>
+                        <tr><td>Ядро / L3-коммутатор</td><td>D-Link DGS-1210-28</td><td>Core / inter-VLAN routing</td><td>2</td></tr>
+                        <tr><td>Доступ (PoE)</td><td>D-Link DGS-1210-10P</td><td>CCTV, PoE-устройства</td><td>2</td></tr>
+                        <tr><td>Доступ</td><td>D-Link DGS-1210-28</td><td>Пользовательский сегмент</td><td>2</td></tr>
+                        <tr><td>Сервер</td><td>Dell PowerEdge R550</td><td>DHCP, DNS, NTP, FTP, HTTP</td><td>4</td></tr>
+                        <tr><td>СХД</td><td>Synology HD6500</td><td>Хранение данных</td><td>1</td></tr>
+                    </table>
+
+                    <div class="section-title">1.3 Выбор пассивного оборудования</div>
+                    <p class="text-paragraph">Пассивная инфраструктура строится на базе кабеля UTP категории 5e (U/UTP Cat.5e, 4×2×0,52 мм). Для центрального узла используется напольный шкаф D-Link NFR-GLS 42U, для коммутаторов доступа — настенные шкафы серии NWR. Применяются патч-панели D-Link NPP-C61BLK на 24 порта и горизонтальные кабельные организаторы.</p>
+
+                    <div class="section-title">1.4 Размещение оборудования</div>
+                    <p class="text-paragraph">Оборудование размещается в телекоммуникационных шкафах: центральный ТКШ (42U) — серверная комната; настенные шкафы (9U) — рядом с пользовательскими зонами и зоной видеонаблюдения. Размещение оборудования и кабельные трассы показаны на схеме филиала (Приложение Д) и схеме главного здания (Приложение Е).</p>
+
+                    <p class="text-paragraph">Фасад центрального телекоммуникационного шкафа (42U) с установленным оборудованием приведён на рисунке ниже. Оборудование распределено по юнитам сверху вниз: патч-панели, коммутаторы ядра, коммутаторы доступа, маршрутизатор, межсетевой экран, серверы, СХД, источник бесперебойного питания.</p>
+
+                    <div class="figure">
+                        <img src="../картинки/ТКШ.png" alt="Фасад телекоммуникационного шкафа" class="scheme-image">
+                        <div class="figure-caption">Рисунок 1.4 — Фасад телекоммуникационного шкафа (ТКШ 42U)</div>
+                    </div>
+
+                    <div class="section-title">1.5 Маркировка оборудования и кабельных линий</div>
+                    <p class="text-paragraph">Принята единая система маркировки. Оборудование: B1.2.R1, B1.2.FW1, B1.2.SWM1, B1.3.SW1, B1.7.SW2 (аналогично для B2). Кабельные линии: B1-001…B1-040 (40 линий) и B2-001…B2-020 (20 линий).</p>
+
+                    <div class="table-caption">Таблица 1.2 — Примеры маркировки</div>
+                    <table class="data-table">
+                        <tr><th>Маркировка</th><th>Описание</th></tr>
+                        <tr><td>B1.2.R1 / B2.1.R1</td><td>Маршрутизатор филиала</td></tr>
+                        <tr><td>B1.2.FW1 / B2.1.FW1</td><td>Межсетевой экран филиала</td></tr>
+                        <tr><td>B1.2.SWM1 / B2.1.SWM1</td><td>Центральный коммутатор</td></tr>
+                        <tr><td>B1.3.SW1 / B2.2.SW1</td><td>Коммутатор пользователей</td></tr>
+                        <tr><td>B1.7.SW2 / B2.2.SW2</td><td>Коммутатор CCTV</td></tr>
+                        <tr><td>B1-001…B1-040</td><td>Кабельные линии филиала B1 (40 шт.)</td></tr>
+                        <tr><td>B2-001…B2-020</td><td>Кабельные линии филиала B2 (20 шт.)</td></tr>
+                    </table>
+
+                    <div class="section-title">1.6 Кабельный журнал</div>
+                    <p class="text-paragraph">Кабельный журнал содержит полное описание каждой кабельной линии: маркировку, точки начала и конца, марку кабеля, число и сечение жил, длину, способ прокладки и характеристику. В журнале 60 линий (40 в филиале B1 и 20 в филиале B2). Общая длина кабеля без запаса составляет 271 м.</p>
+                    <p class="text-paragraph">Полный кабельный журнал вынесен в Приложение Г:</p>
+                    <a href="application4.html" class="cross-link">→ Приложение Г. Кабельный журнал (60 линий)</a>
+
+                    <div class="section-title">1.7 Схемы сети</div>
+                    <p class="text-paragraph">Для отображения структуры сети разработаны три схемы по модели OSI:</p>
+                    <ul>
+                        <li><strong>L1 (физический уровень)</strong> — физическое подключение устройств кабелями, расположение портов;</li>
+                        <li><strong>L2 (канальный уровень)</strong> — VLAN, trunk-соединения, port-channel, STP;</li>
+                        <li><strong>L3 (сетевой уровень)</strong> — IP-адресация, межвлановая маршрутизация, статические маршруты.</li>
+                    </ul>
+
+                    <div class="figure">
+                        <img src="../картинки/L1.png" alt="Схема L1 — физический уровень" class="scheme-image">
+                        <div class="figure-caption">Рисунок 1.1 — Схема L1 (физический уровень)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/L2.png" alt="Схема L2 — канальный уровень" class="scheme-image">
+                        <div class="figure-caption">Рисунок 1.2 — Схема L2 (канальный уровень, VLAN/trunk/STP)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/L3.png" alt="Схема L3 — сетевой уровень" class="scheme-image">
+                        <div class="figure-caption">Рисунок 1.3 — Схема L3 (сетевой уровень, IP-адресация и маршрутизация)</div>
+                    </div>
+
+                    <p class="text-paragraph">Сводная физическая схема прокладки СКС приведена в Приложении Д (филиал) и Приложении Е (главное здание). Логическая схема сети — в Приложении В.</p>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                <nav class="right-menu">
+                    <ul>
+                        <li><a href="introduction.html">Введение</a></li>
+                        <li><a href="project.html" class="active">Проектная часть</a></li>
+                        <li><a href="operation.html">Эксплуатационная часть</a></li>
+                        <li><a href="economy.html">Экономическая часть</a></li>
+                        <li><a href="technology.html">Веб-технология</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>Андреев Никита Александрович — 09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

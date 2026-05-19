@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эксплуатационная часть — Пояснительная записка</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="../картинки/лого.jpg" alt="Логотип колледжа" class="logo-img">
+            </div>
+            <div class="college-info">
+                <h1>ГБПОУ «Пермский политехнический колледж имени Н.Г. Славянова»</h1>
+                <p>09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <nav class="toc-menu">
+            <ol>
+                <li><a href="index.html">Титульный лист</a></li>
+                <li><a href="terms.html">Термины и определения</a></li>
+                <li><a href="abbreviations.html">Перечень сокращений и обозначений</a></li>
+
+                <li><span class="toc-section-header">1 Теоретическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="theoretical.html#section1">Электронный образовательный ресурс</a></li>
+                        <li><a href="theoretical.html#section2">Виды сайтов, учебные сайты</a></li>
+                        <li><a href="theoretical.html#section3">Особенности учебного сайта</a></li>
+                        <li><a href="theoretical.html#section4">Этапы разработки сайта</a></li>
+                        <li><a href="theoretical.html#section5">Анализ готовых решений</a></li>
+                    </ol>
+                </li>
+
+                <li><span class="toc-section-header">2 Практическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="practical.html#p1">Разработка макета</a></li>
+                        <li><a href="practical.html#p2">Вёрстка</a></li>
+                        <li><a href="practical.html#p3">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p4">Разработка макета</a></li>
+                        <li><a href="practical.html#p5">Вёрстка</a></li>
+                        <li><a href="practical.html#p6">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p7">Разработка макета</a></li>
+                        <li><a href="practical.html#p8">Вёрстка</a></li>
+                        <li><a href="practical.html#p9">Наполнение контентом</a></li>
+                    </ol>
+                </li>
+
+                <li><a href="conclusion.html">Заключение</a></li>
+                <li><a href="list.html">Список использованных источников</a></li>
+                <li><a href="application.html">Приложения</a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="content-center">
+                <div class="text-content">
+                    <h1 class="page-title">2 Эксплуатационная часть</h1>
+
+                    <p class="text-paragraph">Эксплуатационная часть описывает настройку оборудования, IP-адресацию, конфигурацию VLAN и сетевых сервисов, обеспечивающих функционирование спроектированной сети.</p>
+
+                    <div class="section-title">2.1 Таблица VLAN</div>
+                    <div class="table-caption">Таблица 2.1 — Список VLAN</div>
+                    <table class="data-table">
+                        <tr><th>VLAN ID</th><th>Имя</th><th>Подсеть B1</th><th>Подсеть B2</th><th>Назначение</th></tr>
+                        <tr><td>100</td><td>SERVERS</td><td>192.168.30.0/28</td><td>192.168.130.0/28</td><td>Серверный сегмент</td></tr>
+                        <tr><td>200</td><td>USERS</td><td>192.168.40.0/27</td><td>192.168.140.0/27</td><td>Пользователи</td></tr>
+                        <tr><td>300</td><td>CCTV</td><td>192.168.60.0/28</td><td>192.168.160.0/28</td><td>Видеонаблюдение</td></tr>
+                        <tr><td>400</td><td>DMZ</td><td>192.168.10.0/28</td><td>192.168.110.0/28</td><td>Публичные сервисы</td></tr>
+                        <tr><td>999</td><td>MGMT</td><td>192.168.99.0/29</td><td>192.168.199.0/29</td><td>Управление сетью</td></tr>
+                    </table>
+
+                    <div class="section-title">2.2 IP-адресация</div>
+                    <div class="table-caption">Таблица 2.2 — Распределение IP-адресов</div>
+                    <table class="data-table">
+                        <tr><th>Устройство / сегмент</th><th>B1</th><th>B2</th></tr>
+                        <tr><td>SWM ↔ ASA inside</td><td>10.255.1.2/30</td><td>10.255.2.2/30</td></tr>
+                        <tr><td>ASA inside</td><td>10.255.1.1/30</td><td>10.255.2.1/30</td></tr>
+                        <tr><td>R ↔ ASA outside</td><td>172.16.1.1/28</td><td>172.16.2.1/28</td></tr>
+                        <tr><td>WAN ↔ ISP</td><td>100.64.1.2/30</td><td>100.64.2.2/30</td></tr>
+                        <tr><td>SVI VLAN 100 (Servers)</td><td>192.168.30.1</td><td>192.168.130.1</td></tr>
+                        <tr><td>SVI VLAN 200 (Users)</td><td>192.168.40.1</td><td>192.168.140.1</td></tr>
+                        <tr><td>SVI VLAN 300 (CCTV)</td><td>192.168.60.1</td><td>192.168.160.1</td></tr>
+                        <tr><td>SVI VLAN 999 (MGMT)</td><td>192.168.99.1</td><td>192.168.199.1</td></tr>
+                    </table>
+
+                    <div class="section-title">2.3 Назначение портов SWM (B1)</div>
+                    <div class="table-caption">Таблица 2.3 — Распределение портов центрального коммутатора</div>
+                    <table class="data-table">
+                        <tr><th>Интерфейс</th><th>Подключение</th><th>Режим</th><th>VLAN</th></tr>
+                        <tr><td>Fa0/1</td><td>Сервер s1 (DHCP/DNS/NTP)</td><td>access</td><td>100</td></tr>
+                        <tr><td>Fa0/3 – Fa0/10</td><td>Серверы s2 – s9</td><td>access</td><td>100</td></tr>
+                        <tr><td>Fa0/2</td><td>Администраторский ПК c23</td><td>access</td><td>999</td></tr>
+                        <tr><td>Gi0/1</td><td>Trunk к SW1 (пользователи)</td><td>trunk</td><td>100,200,999</td></tr>
+                        <tr><td>Gi0/2</td><td>Trunk к SW2 (CCTV)</td><td>trunk</td><td>300,999</td></tr>
+                        <tr><td>Fa0/24</td><td>Uplink к FW1 (inside)</td><td>routed</td><td>—</td></tr>
+                    </table>
+
+                    <div class="section-title">2.4 Конфигурация центрального коммутатора (фрагмент)</div>
+                    <div class="code-block">hostname B1-SWM1
+ip routing
+
+vlan 100
+ name SERVERS
+vlan 200
+ name USERS
+vlan 300
+ name CCTV
+vlan 999
+ name MGMT
+
+interface vlan 100
+ ip address 192.168.30.1 255.255.255.240
+interface vlan 200
+ ip address 192.168.40.1 255.255.255.224
+ ip helper-address 192.168.30.2
+interface vlan 300
+ ip address 192.168.60.1 255.255.255.240
+
+spanning-tree mode pvst
+spanning-tree vlan 100,200,300,999 root primary
+
+ip route 0.0.0.0 0.0.0.0 10.255.1.1</div>
+
+                    <div class="section-title">2.4 Конфигурация устройств (скриншоты)</div>
+                    <p class="text-paragraph">Ниже приведены скриншоты настройки активного оборудования сети: маршрутизатора, межсетевого экрана и коммутаторов B1.</p>
+
+                    <div class="figure">
+                        <img src="../картинки/циско1.png" alt="Топология сети в Cisco Packet Tracer" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.1 — Топология сети в среде Cisco Packet Tracer</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/роутер1.png" alt="Конфигурация маршрутизатора, часть 1" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.2 — Конфигурация маршрутизатора B1 (часть 1)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/роутер2.png" alt="Конфигурация маршрутизатора, часть 2" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.3 — Конфигурация маршрутизатора B1 (часть 2)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/b1fw.png" alt="Конфигурация межсетевого экрана B1" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.4 — Конфигурация межсетевого экрана B1-FW1 (Cisco ASA)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/b1swm.png" alt="Конфигурация центрального коммутатора B1" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.5 — Конфигурация центрального коммутатора B1-SWM1</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/b1sw1.png" alt="Конфигурация коммутатора доступа SW1" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.6 — Конфигурация коммутатора доступа B1-SW1 (VLAN 200)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/b1sw2.png" alt="Конфигурация коммутатора доступа SW2" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.7 — Конфигурация коммутатора доступа B1-SW2 (VLAN 300 / CCTV)</div>
+                    </div>
+
+                    <div class="section-title">2.5 Настройка сетевых сервисов (скриншоты)</div>
+                    <p class="text-paragraph">Ниже приведены скриншоты настройки серверных служб: DHCP, DNS, NTP, TFTP, FTP, HTTP и Email.</p>
+
+                    <div class="figure">
+                        <img src="../картинки/dhcp.png" alt="Настройка DHCP-сервера" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.8 — Настройка DHCP-сервера (пул VLAN 200)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/dns.png" alt="Настройка DNS-сервера" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.9 — Настройка DNS-сервера (записи типа A)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/ntp.png" alt="Настройка NTP-сервера" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.10 — Настройка NTP-сервера (синхронизация времени)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/tftp.png" alt="Настройка TFTP-сервера" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.11 — Настройка TFTP-сервера (резервное копирование конфигураций)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/fpt.png" alt="Настройка FTP-сервера" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.12 — Настройка FTP-сервера (обмен файлами в DMZ)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/http.png" alt="Настройка HTTP-сервера" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.13 — Настройка HTTP-сервера (публичный веб-сервис в DMZ)</div>
+                    </div>
+
+                    <div class="figure">
+                        <img src="../картинки/email.png" alt="Настройка почтового сервера" class="scheme-image">
+                        <div class="figure-caption">Рисунок 2.14 — Настройка почтового сервера Email</div>
+                    </div>
+
+                    <div class="section-title">2.6 Команды проверки</div>
+                    <p class="text-paragraph">Для проверки работоспособности применяются команды: <code>show vlan brief</code>, <code>show interfaces trunk</code>, <code>show ip interface brief</code>, <code>show spanning-tree</code>, <code>show ip route</code>, <code>show running-config</code>.</p>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                <nav class="right-menu">
+                    <ul>
+                        <li><a href="introduction.html">Введение</a></li>
+                        <li><a href="project.html">Проектная часть</a></li>
+                        <li><a href="operation.html" class="active">Эксплуатационная часть</a></li>
+                        <li><a href="economy.html">Экономическая часть</a></li>
+                        <li><a href="technology.html">Веб-технология</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>Андреев Никита Александрович — 09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

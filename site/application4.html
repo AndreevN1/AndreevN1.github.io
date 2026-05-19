@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приложение Г — Пояснительная записка</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="../картинки/лого.jpg" alt="Логотип колледжа" class="logo-img">
+            </div>
+            <div class="college-info">
+                <h1>ГБПОУ «Пермский политехнический колледж имени Н.Г. Славянова»</h1>
+                <p>09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <nav class="toc-menu">
+            <ol>
+                <li><a href="index.html">Титульный лист</a></li>
+                <li><a href="terms.html">Термины и определения</a></li>
+                <li><a href="abbreviations.html">Перечень сокращений и обозначений</a></li>
+
+                <li><span class="toc-section-header">1 Теоретическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="theoretical.html#section1">Электронный образовательный ресурс</a></li>
+                        <li><a href="theoretical.html#section2">Виды сайтов, учебные сайты</a></li>
+                        <li><a href="theoretical.html#section3">Особенности учебного сайта</a></li>
+                        <li><a href="theoretical.html#section4">Этапы разработки сайта</a></li>
+                        <li><a href="theoretical.html#section5">Анализ готовых решений</a></li>
+                    </ol>
+                </li>
+
+                <li><span class="toc-section-header">2 Практическая часть</span>
+                    <ol class="sub-list">
+                        <li><a href="practical.html#p1">Разработка макета</a></li>
+                        <li><a href="practical.html#p2">Вёрстка</a></li>
+                        <li><a href="practical.html#p3">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p4">Разработка макета</a></li>
+                        <li><a href="practical.html#p5">Вёрстка</a></li>
+                        <li><a href="practical.html#p6">Наполнение контентом</a></li>
+                        <li><a href="practical.html#p7">Разработка макета</a></li>
+                        <li><a href="practical.html#p8">Вёрстка</a></li>
+                        <li><a href="practical.html#p9">Наполнение контентом</a></li>
+                    </ol>
+                </li>
+
+                <li><a href="conclusion.html">Заключение</a></li>
+                <li><a href="list.html">Список использованных источников</a></li>
+                <li><a href="application.html">Приложения</a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="content-center">
+                <div class="text-content">
+                    <h1 class="page-title">Приложение Г — Кабельный журнал</h1>
+                    <p class="text-paragraph">Кабельный журнал содержит описание всех кабельных линий проектируемой сети. Всего 60 линий: 40 в филиале B1 (главное здание) и 20 в филиале B2. Все линии выполнены кабелем U/UTP Cat.5e 4×2×0,52 мм, напряжение до 48 В.</p>
+
+                    <div class="cable-journal-wrap">
+                        <table class="cable-journal">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">Маркировка</th>
+                                    <th colspan="2">Трасса</th>
+                                    <th colspan="3">Кабель / провод</th>
+                                    <th colspan="2">Проход трассы</th>
+                                </tr>
+                                <tr>
+                                    <th>Начало</th>
+                                    <th>Конец</th>
+                                    <th>Марка</th>
+                                    <th>Жилы / напряжение</th>
+                                    <th>Длина, м</th>
+                                    <th>Способ прокладки</th>
+                                    <th>Характеристика</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="section-row"><td colspan="8">Раздел 1. Кабельный журнал филиала B1 (40 линий)</td></tr>
+                            <tr><td>B1-001</td><td>B1.1.ISP1</td><td>B1.1.M1</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>2</td><td>Патч-корд / внешн.</td><td>Провайдерская линия до модема</td></tr>
+                            <tr><td>B1-002</td><td>B1.1.M1</td><td>B1.2.R1 Fa0/1</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>2</td><td>Патч-корд</td><td>Подключение модема к маршрутизатору</td></tr>
+                            <tr><td>B1-003</td><td>B1.2.R1 Fa0/0</td><td>B1.2.FW1 Eth0/0</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>2</td><td>Патч-корд</td><td>Сегмент outside 172.16.1.0/28</td></tr>
+                            <tr><td>B1-004</td><td>B1.2.FW1 Eth0/1</td><td>B1.2.SWM1 Fa0/24</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Сегмент inside 10.255.1.0/30</td></tr>
+                            <tr><td>B1-005</td><td>B1.2.FW1 Eth0/2</td><td>B1.2.DMZ1 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>DMZ-сервер</td></tr>
+                            <tr><td>B1-006</td><td>B1.2.SWM1 Fa0/1</td><td>B1.2.s1 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Сервер всех служб, VLAN 100</td></tr>
+                            <tr><td>B1-007</td><td>B1.2.SWM1 Fa0/3</td><td>B1.2.s2 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-008</td><td>B1.2.SWM1 Fa0/4</td><td>B1.2.s3 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-009</td><td>B1.2.SWM1 Fa0/5</td><td>B1.2.s4 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-010</td><td>B1.2.SWM1 Fa0/6</td><td>B1.2.s5 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-011</td><td>B1.2.SWM1 Fa0/7</td><td>B1.2.s6 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-012</td><td>B1.2.SWM1 Fa0/8</td><td>B1.2.s7 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-013</td><td>B1.2.SWM1 Fa0/9</td><td>B1.2.s8 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-014</td><td>B1.2.SWM1 Fa0/10</td><td>B1.2.s9 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B1-015</td><td>B1.2.SWM1 Fa0/2</td><td>B1.2.c23 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Администраторский ПК, VLAN 999</td></tr>
+                            <tr><td>B1-016</td><td>B1.2.SWM1 Gi0/1</td><td>B1.3.SW1 Fa0/24</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>5</td><td>Кабель-канал / патч</td><td>Магистральный trunk 802.1Q</td></tr>
+                            <tr><td>B1-017</td><td>B1.2.SWM1 Gi0/2</td><td>B1.7.SW2 Fa0/24</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Кабель-канал / патч</td><td>Магистральный trunk 802.1Q</td></tr>
+                            <tr><td>B1-018</td><td>B1.3.SW1 Fa0/23</td><td>B1.7.SW2 Fa0/23</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>8</td><td>Кабель-канал / патч</td><td>Резервный trunk / STP</td></tr>
+                            <tr><td>B1-019</td><td>B1.3.SW1 Fa0/1</td><td>B1.1.c1 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-020</td><td>B1.3.SW1 Fa0/2</td><td>B1.1.c2 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-021</td><td>B1.3.SW1 Fa0/3</td><td>B1.1.c3 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-022</td><td>B1.3.SW1 Fa0/4</td><td>B1.1.c4 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-023</td><td>B1.3.SW1 Fa0/5</td><td>B1.14.c5 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-024</td><td>B1.3.SW1 Fa0/6</td><td>B1.14.c6 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-025</td><td>B1.3.SW1 Fa0/7</td><td>B1.15.c7 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-026</td><td>B1.3.SW1 Fa0/8</td><td>B1.14.c8 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-027</td><td>B1.3.SW1 Fa0/9</td><td>B1.14.c9 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-028</td><td>B1.3.SW1 Fa0/10</td><td>B1.14.c10 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-029</td><td>B1.3.SW1 Fa0/11</td><td>B1.14.c11 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-030</td><td>B1.3.SW1 Fa0/12</td><td>B1.15.c12 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-031</td><td>B1.3.SW1 Fa0/13</td><td>B1.15.c13 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-032</td><td>B1.3.SW1 Fa0/14</td><td>B1.15.c14 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-033</td><td>B1.3.SW1 Fa0/15</td><td>B1.15.c15 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-034</td><td>B1.3.SW1 Fa0/16</td><td>B1.15.c16 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Пользовательский ПК, VLAN 200</td></tr>
+                            <tr><td>B1-035</td><td>B1.7.SW2 Fa0/1</td><td>B1.3.c.17 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>7</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            <tr><td>B1-036</td><td>B1.7.SW2 Fa0/2</td><td>B1.6.c.18 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>7</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            <tr><td>B1-037</td><td>B1.7.SW2 Fa0/3</td><td>B1.6.c.19 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>7</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            <tr><td>B1-038</td><td>B1.7.SW2 Fa0/4</td><td>B1.7.c.20 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>7</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            <tr><td>B1-039</td><td>B1.7.SW2 Fa0/5</td><td>B1.7.c.21 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>7</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            <tr><td>B1-040</td><td>B1.7.SW2 Fa0/6</td><td>B1.10.c.22 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>7</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            <tr class="section-row"><td colspan="8">Раздел 2. Кабельный журнал филиала B2 (20 линий)</td></tr>
+                            <tr><td>B2-001</td><td>B2.7.ISP1</td><td>B2.7.M1</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>2</td><td>Патч-корд / внешн.</td><td>Провайдерская линия до модема</td></tr>
+                            <tr><td>B2-002</td><td>B2.7.M1</td><td>B2.1.R1 Fa0/1</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>2</td><td>Патч-корд</td><td>Подключение модема к маршрутизатору</td></tr>
+                            <tr><td>B2-003</td><td>B2.1.R1 Fa0/0</td><td>B2.1.FW1 Eth0/0</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>2</td><td>Патч-корд</td><td>Сегмент outside 172.16.2.0/28</td></tr>
+                            <tr><td>B2-004</td><td>B2.1.FW1 Eth0/1</td><td>B2.1.SWM1 Fa0/24</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Сегмент inside 10.255.2.0/30</td></tr>
+                            <tr><td>B2-005</td><td>B2.1.FW1 Eth0/2</td><td>B2.1.DMZ NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>DMZ-сервер</td></tr>
+                            <tr><td>B2-006</td><td>B2.1.SWM1 Fa0/1</td><td>B2.1.s1 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Сервер всех служб, VLAN 100</td></tr>
+                            <tr><td>B2-007</td><td>B2.1.SWM1 Fa0/3</td><td>B2.1.s2 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-008</td><td>B2.1.SWM1 Fa0/4</td><td>B2.1.s3 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-009</td><td>B2.1.SWM1 Fa0/5</td><td>B2.1.s4 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-010</td><td>B2.1.SWM1 Fa0/6</td><td>B2.1.s5 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-011</td><td>B2.1.SWM1 Fa0/7</td><td>B2.1.s6 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-012</td><td>B2.1.SWM1 Fa0/8</td><td>B2.1.s7 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-013</td><td>B2.1.SWM1 Fa0/9</td><td>B2.1.s8 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-014</td><td>B2.1.SWM1 Fa0/10</td><td>B2.1.s9 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Серверный сегмент VLAN 100</td></tr>
+                            <tr><td>B2-015</td><td>B2.1.SWM1 Fa0/2</td><td>B2.1.c11 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>3</td><td>Кабель-канал / патч</td><td>Администраторский ПК, VLAN 999</td></tr>
+                            <tr><td>B2-016</td><td>B2.1.SWM1 Gi0/1</td><td>B2.2.SW1 Fa0/24</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>5</td><td>Кабель-канал / патч</td><td>Магистральный trunk 802.1Q</td></tr>
+                            <tr><td>B2-017</td><td>B2.1.SWM1 Gi0/2</td><td>B2.2.SW2 Fa0/24</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>5</td><td>Кабель-канал / патч</td><td>Магистральный trunk 802.1Q</td></tr>
+                            <tr><td>B2-018</td><td>B2.2.SW1 Fa0/23</td><td>B2.2.SW2 Fa0/23</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>8</td><td>Кабель-канал / патч</td><td>Резервный trunk / STP</td></tr>
+                            <tr><td>B2-019</td><td>B2.2.SW2 Fa0/1</td><td>B2.2.c9 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            <tr><td>B2-020</td><td>B2.2.SW2 Fa0/2</td><td>B2.2.c10 NIC</td><td>U/UTP Cat.5e</td><td>4×2×0,52 мм</td><td>6</td><td>Гориз. линия / патч</td><td>Камера, VLAN 300</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-paragraph"><strong>Итого:</strong> 60 кабельных линий, общая длина без запаса — 271 м (B1: 199 м, B2: 72 м). С учётом запаса 20% — 325 м (см. Экономическую часть).</p>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                <nav class="right-menu">
+                    <ul>
+                        <li><a href="introduction.html">Введение</a></li>
+                        <li><a href="project.html">Проектная часть</a></li>
+                        <li><a href="operation.html">Эксплуатационная часть</a></li>
+                        <li><a href="economy.html">Экономическая часть</a></li>
+                        <li><a href="technology.html">Веб-технология</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>Андреев Никита Александрович — 09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
