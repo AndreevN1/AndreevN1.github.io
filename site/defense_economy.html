@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заключение — Пояснительная записка</title>
+    <title>3 Экономическая — защита — Пояснительная записка</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -75,7 +75,7 @@
                     </ol>
                 </li>
 
-                <li><a href="conclusion.html" class="active">ЗАКЛЮЧЕНИЕ</a></li>
+                <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
                 <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
                 <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
                     <ol class="sub-list">
@@ -91,33 +91,60 @@
     <div class="main-content">
         <div class="content-wrapper">
             <div class="content-center">
-                <div class="text-content">
-                    <h1 class="page-title">Заключение</h1>
 
-                    <p class="text-paragraph">В результате выполнения дипломного проекта была разработана структурированная кабельная сеть для офиса интернет-магазина с применением принципа сегментирования трафика по VLAN, выделением DMZ-зоны и защитой периметра при помощи межсетевого экрана.</p>
-
-                    <p class="text-paragraph">В ходе работы решены следующие задачи:</p>
-                    <ul>
-                        <li>разработана архитектура сети по иерархической модели для двух филиалов (B1 + B2);</li>
-                        <li>обоснован выбор активного оборудования D-Link и пассивной инфраструктуры;</li>
-                        <li>составлен кабельный журнал на 60 кабельных линий (Приложение Г);</li>
-                        <li>разработаны схемы уровней L1, L2 и L3, а также планы прокладки СКС;</li>
-                        <li>выполнена конфигурация VLAN, trunk, STP и межвлановой маршрутизации;</li>
-                        <li>настроены сетевые сервисы DHCP, DNS, NTP, HTTP, FTP и Syslog;</li>
-                        <li>рассчитана длина кабеля (325 м с запасом 20%) и общая стоимость проекта (93 188 ₽);</li>
-                        <li>пояснительная записка оформлена в виде сайта на HTML и CSS.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Предложенное решение обеспечивает:</p>
-                    <ul>
-                        <li>логическое разделение трафика и повышение безопасности;</li>
-                        <li>изоляцию пользовательского, серверного и CCTV-сегментов;</li>
-                        <li>возможность дальнейшего масштабирования сети;</li>
-                        <li>централизованное управление и мониторинг.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Поставленная цель дипломного проекта достигнута, все задачи выполнены в полном объёме.</p>
-                </div>
+<div class="defense-page">
+  <h1 class="defense-title">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</h1>
+  <div class="defense-nums-row">
+    <div class="defense-num"><span class="defense-num-val">325</span><span class="defense-num-label">метров кабеля</span></div>
+    <div class="defense-num"><span class="defense-num-val">35 640</span><span class="defense-num-label">монтаж ₽</span></div>
+    <div class="defense-num"><span class="defense-num-val">46 417</span><span class="defense-num-label">материалы СКС ₽</span></div>
+    <div class="defense-num"><span class="defense-num-val">2 293 068</span><span class="defense-num-label">ИТОГО ₽</span></div>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Расчёт СКС</h3>
+    <ul class="defense-list">
+      <li>60 линий: B1 — 40 (199 м), B2 — 20 (72 м), база — 271 м</li>
+      <li>Запас 20% (+54 м) → итого <b>325 м</b> кабеля U/UTP Cat.5e</li>
+      <li>Кабель-канал ПВХ 40×25 мм: 180 м (с запасом 20%)</li>
+      <li>Розетки RJ-45: 72 шт., коннекторы: 144 шт., патч-корды: 72 шт.</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Трудозатраты (400 ₽/час)</h3>
+    <ul class="defense-list">
+      <li>Монтаж кабель-каналов: 18,0 ч = 7 200 ₽</li>
+      <li>Прокладка кабеля: 16,3 ч = 6 520 ₽</li>
+      <li>Сверление: 16,2 ч = 6 480 ₽</li>
+      <li>Монтаж розеток: 14,4 ч = 5 760 ₽</li>
+      <li>Обжимка и маркировка: 7,2 ч = 2 880 ₽</li>
+      <li>Тестирование: 6,0 ч = 2 400 ₽</li>
+      <li><b>Итого: 89,1 ч = 35 640 ₽</b></li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Стоимость оборудования (один ТКШ)</h3>
+    <ul class="defense-list">
+      <li>UserGate F100 (МЭ): 89 000 ₽</li>
+      <li>D-Link DSR-1000AC (маршрутизатор): 24 900 ₽</li>
+      <li>Коммутаторы DGS-1210-28 + DGS-1210-10P: 41 100 ₽</li>
+      <li>Dell PowerEdge R550 ×3: 534 000 ₽</li>
+      <li>Synology HD6500 (СХД): 348 000 ₽</li>
+      <li>Шкаф + патч-панели + PDU: 60 300 ₽</li>
+      <li><b>Итого один ТКШ: 1 097 300 ₽</b></li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Итоговая смета</h3>
+    <ul class="defense-list">
+      <li>Материалы СКС: 46 417 ₽</li>
+      <li>Монтажные работы: 35 640 ₽</li>
+      <li>Непредвиденные расходы (20%): 16 411 ₽</li>
+      <li>Оборудование ТКШ-B1: 1 097 300 ₽</li>
+      <li>Оборудование ТКШ-B2: 1 097 300 ₽</li>
+      <li><b>ИТОГО: 2 293 068 ₽</b></li>
+    </ul>
+  </div>
+</div>
             </div>
 
             <div class="right-sidebar">
@@ -126,7 +153,7 @@
 <li><a href="defense_intro.html">ВВЕДЕНИЕ</a></li>
 <li><a href="defense_project.html">1 ПРОЕКТНАЯ ЧАСТЬ</a></li>
 <li><a href="defense_operation.html">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</a></li>
-<li><a href="defense_economy.html">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</a></li>
+<li><a href="defense_economy.html" class="active">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</a></li>
 <li><a href="defense_technology.html">4 ТЕХНОЛОГИЯ ВЕБ</a></li>
                     </ul>
                 </nav>

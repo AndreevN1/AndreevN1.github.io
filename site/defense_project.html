@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заключение — Пояснительная записка</title>
+    <title>1 Проектная — защита — Пояснительная записка</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -75,7 +75,7 @@
                     </ol>
                 </li>
 
-                <li><a href="conclusion.html" class="active">ЗАКЛЮЧЕНИЕ</a></li>
+                <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
                 <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
                 <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
                     <ol class="sub-list">
@@ -91,40 +91,90 @@
     <div class="main-content">
         <div class="content-wrapper">
             <div class="content-center">
-                <div class="text-content">
-                    <h1 class="page-title">Заключение</h1>
 
-                    <p class="text-paragraph">В результате выполнения дипломного проекта была разработана структурированная кабельная сеть для офиса интернет-магазина с применением принципа сегментирования трафика по VLAN, выделением DMZ-зоны и защитой периметра при помощи межсетевого экрана.</p>
-
-                    <p class="text-paragraph">В ходе работы решены следующие задачи:</p>
-                    <ul>
-                        <li>разработана архитектура сети по иерархической модели для двух филиалов (B1 + B2);</li>
-                        <li>обоснован выбор активного оборудования D-Link и пассивной инфраструктуры;</li>
-                        <li>составлен кабельный журнал на 60 кабельных линий (Приложение Г);</li>
-                        <li>разработаны схемы уровней L1, L2 и L3, а также планы прокладки СКС;</li>
-                        <li>выполнена конфигурация VLAN, trunk, STP и межвлановой маршрутизации;</li>
-                        <li>настроены сетевые сервисы DHCP, DNS, NTP, HTTP, FTP и Syslog;</li>
-                        <li>рассчитана длина кабеля (325 м с запасом 20%) и общая стоимость проекта (93 188 ₽);</li>
-                        <li>пояснительная записка оформлена в виде сайта на HTML и CSS.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Предложенное решение обеспечивает:</p>
-                    <ul>
-                        <li>логическое разделение трафика и повышение безопасности;</li>
-                        <li>изоляцию пользовательского, серверного и CCTV-сегментов;</li>
-                        <li>возможность дальнейшего масштабирования сети;</li>
-                        <li>централизованное управление и мониторинг.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Поставленная цель дипломного проекта достигнута, все задачи выполнены в полном объёме.</p>
-                </div>
+<div class="defense-page">
+  <h1 class="defense-title">1 ПРОЕКТНАЯ ЧАСТЬ</h1>
+  <div class="defense-nums-row">
+    <div class="defense-num"><span class="defense-num-val">5</span><span class="defense-num-label">VLAN-сегментов</span></div>
+    <div class="defense-num"><span class="defense-num-val">40</span><span class="defense-num-label">линий B1 199 м</span></div>
+    <div class="defense-num"><span class="defense-num-val">20</span><span class="defense-num-label">линий B2 72 м</span></div>
+    <div class="defense-num"><span class="defense-num-val">42U</span><span class="defense-num-label">шкаф ТКШ</span></div>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Архитектура сети (Core/Distribution/Access)</h3>
+    <ul class="defense-list">
+      <li><b>Ядро:</b> L3-коммутатор SWM1 (D-Link DGS-1210-28) — межвлановая маршрутизация через SVI</li>
+      <li><b>Доступ:</b> SW1 (VLAN 200, пользователи) + SW2 (VLAN 300, CCTV, PoE)</li>
+      <li><b>Периметр:</b> UserGate F100 — зоны inside / outside / DMZ</li>
+      <li>Два независимых объекта: B1 — главное здание, B2 — филиал</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Сегментация VLAN</h3>
+    <ul class="defense-list">
+      <li>VLAN 100 — SERVERS: 192.168.30.0/28</li>
+      <li>VLAN 200 — USERS: 192.168.40.0/27</li>
+      <li>VLAN 300 — CCTV: 192.168.60.0/28 — IP-камеры по PoE</li>
+      <li>VLAN 400 — DMZ: 192.168.10.0/28 — публичные серверы</li>
+      <li>VLAN 999 — MGMT: 192.168.99.0/29 — управление</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Кабельная система</h3>
+    <ul class="defense-list">
+      <li>Кабель U/UTP Cat.5e 4×2×0,52 мм — до 1 Гбит/с, макс. 100 м</li>
+      <li>60 линий: B1 — 40 (199 м), B2 — 20 (72 м), итого 271 м</li>
+      <li>С запасом 20%: <b>325 м</b></li>
+      <li>Шкаф D-Link NFR-GLS-42U, патч-панели NPP-C61BLK</li>
+    </ul>
+  </div>
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 12px;text-transform:uppercase;">Физическая схема сети L1</h3>
+  <div class="defense-img-row">
+    <figure style="max-width:100%;">
+      <img src="../картинки/L1.png" alt="Схема L1" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.15);">
+      <figcaption>Схема сети уровня L1 — физическое подключение</figcaption>
+    </figure>
+  </div>
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 12px;text-transform:uppercase;">Планы зданий</h3>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/Гл_здание1.png" alt="Исходный план B1" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Исходный план главного здания B1</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/Гл_здание.png" alt="B1 с СКС" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>План B1 с проложенной СКС</figcaption>
+    </figure>
+  </div>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/Филиал1.png" alt="Исходный план B2" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Исходный план филиала B2</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/Филиал.png" alt="B2 с СКС" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>План B2 с проложенной СКС</figcaption>
+    </figure>
+  </div>
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 12px;text-transform:uppercase;">Схемы L2 и L3</h3>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/L2.png" alt="Схема L2" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Схема L2 — VLAN, trunk, STP</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/L3.png" alt="Схема L3" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Схема L3 — IP-адресация, DMZ</figcaption>
+    </figure>
+  </div>
+</div>
             </div>
 
             <div class="right-sidebar">
                 <nav class="right-menu">
                     <ul>
 <li><a href="defense_intro.html">ВВЕДЕНИЕ</a></li>
-<li><a href="defense_project.html">1 ПРОЕКТНАЯ ЧАСТЬ</a></li>
+<li><a href="defense_project.html" class="active">1 ПРОЕКТНАЯ ЧАСТЬ</a></li>
 <li><a href="defense_operation.html">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</a></li>
 <li><a href="defense_economy.html">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</a></li>
 <li><a href="defense_technology.html">4 ТЕХНОЛОГИЯ ВЕБ</a></li>

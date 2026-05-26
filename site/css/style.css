@@ -1,5 +1,6 @@
 /* ПОЯСНИТЕЛЬНАЯ ЗАПИСКА — СТИЛИ v4 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+a { text-decoration: none; }
 
 :root {
     --primary:   #2F9292;
@@ -149,17 +150,19 @@ body {
 }
 .content-wrapper {
     display: flex;
+    flex-direction: row;   /* явно — контент слева, сайдбар справа */
     flex: 1;
     min-height: 0;
     overflow: hidden;
 }
 .content-center {
     flex: 1;
+    min-width: 0;
+    min-height: 0;
     padding: 32px 48px 40px 48px;
     overflow-y: auto;
     overflow-x: hidden;
     background: white;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -307,16 +310,26 @@ body {
     align-items: center; justify-content: center;
     width: 100%; flex: 1; overflow: hidden; min-height: 0;
 }
-.screenshot { max-width: 100%; max-height: 100%; height: auto; object-fit: contain; display: block; }
+.screenshot {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 236px); /* 92шапка+40футер+72padding+32box */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
 
 /* ═══ ПРАВАЯ ПАНЕЛЬ ═══ */
 .right-sidebar {
     width: 200px;
+    min-width: 200px;
     background: #fafafa;
     border-left: 1px solid #ddd;
     padding: 20px 12px;
     flex-shrink: 0;
     overflow-y: auto;
+    align-self: stretch;
 }
 .right-menu ul { list-style: none; }
 .right-menu li { margin-bottom: 8px; }
@@ -373,17 +386,38 @@ body {
 
 /* ═══ ФУТЕР ═══ */
 .main-footer {
-    background: var(--dark); color: white;
-    padding: 10px 20px; text-align: center;
+    background: #021C1F;
+    color: #2F9292;
+    padding: 10px 20px;
+    text-align: center;
     flex-shrink: 0;
+    flex-grow: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-top: 2px solid #07444A;
+    letter-spacing: 0.3px;
+    font-size: 13px;
 }
-.footer-content p { font-size: 13px; }
+.footer-content p { font-size: 13px; margin: 0; }
 
 /* ═══ АДАПТИВ ═══ */
 @media (max-width: 1200px) { :root { --sw: 240px; } .right-sidebar { width: 180px; } }
 @media (max-width: 1024px) {
     :root { --sw: 220px; }
-    .content-center { padding: 24px 32px; }
+    .content-center {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 32px 48px 40px 48px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
     .right-sidebar { width: 170px; }
 }
 @media (max-width: 768px) {
@@ -397,5 +431,112 @@ body {
     .main-content { width: 100%; margin-top: 0; height: auto; overflow: visible; }
     .content-wrapper { flex-direction: column; overflow: visible; }
     .right-sidebar { width: 100%; border-left: none; border-top: 1px solid #ddd; }
-    .content-center { padding: 20px; height: auto; overflow-y: visible; }
+    .content-center {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 32px 48px 40px 48px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: white;
+    display: flex;
+    flex-direction: column;
 }
+}
+
+/* ═══ Картинки — по центру контента ═══ */
+.figure img,
+.text-content img:not(.logo-img) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+.figure { text-align: center; margin: 16px 0; }
+
+/* ═══ СТРАНИЦЫ ЗАЩИТЫ ДП ═══ */
+.defense-page { max-width: 900px; margin: 0 auto; }
+
+.defense-title {
+    color: var(--dark); font-size: 1.6rem; font-weight: 700;
+    text-align: center; margin-bottom: 4px; text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.defense-subtitle {
+    text-align: center; color: #666; font-size: 0.9rem;
+    margin-bottom: 20px; font-style: italic;
+}
+
+/* Числа-KPI */
+.defense-nums-row {
+    display: flex; gap: 12px; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 24px;
+}
+.defense-num {
+    background: var(--dark); color: white;
+    border-radius: 8px; padding: 12px 18px;
+    text-align: center; min-width: 110px;
+}
+.defense-num-val {
+    display: block; font-size: 1.5rem; font-weight: 700;
+    color: var(--light);
+}
+.defense-num-label {
+    display: block; font-size: 0.72rem; margin-top: 2px;
+    opacity: 0.85; letter-spacing: 0.3px;
+}
+
+/* Карточки */
+.defense-card {
+    background: #f8fafa; border-left: 4px solid var(--primary);
+    border-radius: 0 6px 6px 0; padding: 14px 18px;
+    margin-bottom: 14px;
+}
+.defense-card-title {
+    color: var(--dark); font-size: 1rem; font-weight: 600;
+    margin-bottom: 10px; text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.defense-list {
+    list-style: none; padding: 0; margin: 0;
+}
+.defense-list li {
+    padding: 5px 0 5px 16px; position: relative;
+    font-size: 0.92rem; line-height: 1.5; color: #333;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.defense-list li:last-child { border-bottom: none; }
+.defense-list li::before {
+    content: "▸"; position: absolute; left: 0;
+    color: var(--primary); font-size: 0.8rem; top: 6px;
+}
+.defense-list code {
+    background: #e8f4f4; color: var(--dark);
+    padding: 1px 6px; border-radius: 3px;
+    font-size: 0.85rem; font-family: monospace;
+}
+
+/* Картинки на странице защиты */
+.defense-img-row {
+    display: flex; gap: 16px; justify-content: center;
+    flex-wrap: wrap; margin-top: 20px;
+}
+.defense-img-row figure {
+    text-align: center; margin: 0; flex: 1; min-width: 220px; max-width: 420px;
+}
+.defense-img-row img {
+    width: 100%; border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+.defense-img-row figcaption {
+    font-size: 0.78rem; color: #666; margin-top: 6px; font-style: italic;
+}
+
+/* Правое меню — стиль для защиты */
+.right-menu a {
+    font-weight: 600; letter-spacing: 0.3px;
+    border-left: 4px solid var(--primary);
+    padding: 10px 12px;
+}
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заключение — Пояснительная записка</title>
+    <title>Введение — защита — Пояснительная записка</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -75,7 +75,7 @@
                     </ol>
                 </li>
 
-                <li><a href="conclusion.html" class="active">ЗАКЛЮЧЕНИЕ</a></li>
+                <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
                 <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
                 <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
                     <ol class="sub-list">
@@ -91,39 +91,60 @@
     <div class="main-content">
         <div class="content-wrapper">
             <div class="content-center">
-                <div class="text-content">
-                    <h1 class="page-title">Заключение</h1>
 
-                    <p class="text-paragraph">В результате выполнения дипломного проекта была разработана структурированная кабельная сеть для офиса интернет-магазина с применением принципа сегментирования трафика по VLAN, выделением DMZ-зоны и защитой периметра при помощи межсетевого экрана.</p>
-
-                    <p class="text-paragraph">В ходе работы решены следующие задачи:</p>
-                    <ul>
-                        <li>разработана архитектура сети по иерархической модели для двух филиалов (B1 + B2);</li>
-                        <li>обоснован выбор активного оборудования D-Link и пассивной инфраструктуры;</li>
-                        <li>составлен кабельный журнал на 60 кабельных линий (Приложение Г);</li>
-                        <li>разработаны схемы уровней L1, L2 и L3, а также планы прокладки СКС;</li>
-                        <li>выполнена конфигурация VLAN, trunk, STP и межвлановой маршрутизации;</li>
-                        <li>настроены сетевые сервисы DHCP, DNS, NTP, HTTP, FTP и Syslog;</li>
-                        <li>рассчитана длина кабеля (325 м с запасом 20%) и общая стоимость проекта (93 188 ₽);</li>
-                        <li>пояснительная записка оформлена в виде сайта на HTML и CSS.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Предложенное решение обеспечивает:</p>
-                    <ul>
-                        <li>логическое разделение трафика и повышение безопасности;</li>
-                        <li>изоляцию пользовательского, серверного и CCTV-сегментов;</li>
-                        <li>возможность дальнейшего масштабирования сети;</li>
-                        <li>централизованное управление и мониторинг.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Поставленная цель дипломного проекта достигнута, все задачи выполнены в полном объёме.</p>
-                </div>
+<div class="defense-page">
+  <h1 class="defense-title">ВВЕДЕНИЕ</h1>
+  <div class="defense-nums-row">
+    <div class="defense-num"><span class="defense-num-val">2</span><span class="defense-num-label">объекта B1 и B2</span></div>
+    <div class="defense-num"><span class="defense-num-val">60</span><span class="defense-num-label">кабельных линий</span></div>
+    <div class="defense-num"><span class="defense-num-val">2 293 068</span><span class="defense-num-label">стоимость проекта ₽</span></div>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">О дипломном проекте</h3>
+    <ul class="defense-list">
+      <li>Дипломный проект по специальности 09.02.06 «Сетевое и системное администрирование»</li>
+      <li>Студент: <b>Андреев Никита Александрович</b>, группа СА-22</li>
+      <li>Руководитель: <b>Лиштван А.А.</b></li>
+      <li>Тема: <b>Проектирование СКС для офиса интернет-магазина, с сегментированием сети</b></li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Цель и задачи проекта</h3>
+    <ul class="defense-list">
+      <li><b>Цель:</b> разработать СКС для офиса интернет-магазина с VLAN-сегментированием</li>
+      <li>Спроектировать сеть для двух независимых объектов B1 и B2</li>
+      <li>Составить кабельный журнал на 60 линий с маркировкой</li>
+      <li>Разработать схемы L1, L2, L3 и фасад ТКШ</li>
+      <li>Настроить VLAN, trunk, STP, UserGate F100</li>
+      <li>Настроить сервисы: DHCP, DNS, NTP, HTTP, FTP, Email</li>
+      <li>Рассчитать стоимость: материалы + монтаж + оборудование</li>
+      <li>Создать сайт ПЗ на HTML5/CSS3, опубликовать на GitHub Pages</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Актуальность</h3>
+    <ul class="defense-list">
+      <li>Надёжная сетевая инфраструктура — ключевое конкурентное преимущество интернет-торговли</li>
+      <li>VLAN-сегментирование обеспечивает безопасность и управляемость без лишнего оборудования</li>
+      <li>UserGate F100 — сертифицированный ФСТЭК российский МЭ, требование импортозамещения</li>
+      <li>Публичные серверы (HTTP, FTP, Email) изолированы в DMZ для защиты внутренней сети</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Объект и предмет исследования</h3>
+    <ul class="defense-list">
+      <li><b>Объект:</b> корпоративная сеть офиса интернет-магазина на двух объектах B1 и B2</li>
+      <li><b>Предмет:</b> методы проектирования, настройки и документирования СКС с VLAN</li>
+      <li><b>Методы:</b> анализ технической документации, моделирование в Cisco Packet Tracer</li>
+    </ul>
+  </div>
+</div>
             </div>
 
             <div class="right-sidebar">
                 <nav class="right-menu">
                     <ul>
-<li><a href="defense_intro.html">ВВЕДЕНИЕ</a></li>
+<li><a href="defense_intro.html" class="active">ВВЕДЕНИЕ</a></li>
 <li><a href="defense_project.html">1 ПРОЕКТНАЯ ЧАСТЬ</a></li>
 <li><a href="defense_operation.html">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</a></li>
 <li><a href="defense_economy.html">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</a></li>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заключение — Пояснительная записка</title>
+    <title>4 Технологии веб — защита — Пояснительная записка</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -75,7 +75,7 @@
                     </ol>
                 </li>
 
-                <li><a href="conclusion.html" class="active">ЗАКЛЮЧЕНИЕ</a></li>
+                <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
                 <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
                 <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
                     <ol class="sub-list">
@@ -91,33 +91,62 @@
     <div class="main-content">
         <div class="content-wrapper">
             <div class="content-center">
-                <div class="text-content">
-                    <h1 class="page-title">Заключение</h1>
 
-                    <p class="text-paragraph">В результате выполнения дипломного проекта была разработана структурированная кабельная сеть для офиса интернет-магазина с применением принципа сегментирования трафика по VLAN, выделением DMZ-зоны и защитой периметра при помощи межсетевого экрана.</p>
-
-                    <p class="text-paragraph">В ходе работы решены следующие задачи:</p>
-                    <ul>
-                        <li>разработана архитектура сети по иерархической модели для двух филиалов (B1 + B2);</li>
-                        <li>обоснован выбор активного оборудования D-Link и пассивной инфраструктуры;</li>
-                        <li>составлен кабельный журнал на 60 кабельных линий (Приложение Г);</li>
-                        <li>разработаны схемы уровней L1, L2 и L3, а также планы прокладки СКС;</li>
-                        <li>выполнена конфигурация VLAN, trunk, STP и межвлановой маршрутизации;</li>
-                        <li>настроены сетевые сервисы DHCP, DNS, NTP, HTTP, FTP и Syslog;</li>
-                        <li>рассчитана длина кабеля (325 м с запасом 20%) и общая стоимость проекта (93 188 ₽);</li>
-                        <li>пояснительная записка оформлена в виде сайта на HTML и CSS.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Предложенное решение обеспечивает:</p>
-                    <ul>
-                        <li>логическое разделение трафика и повышение безопасности;</li>
-                        <li>изоляцию пользовательского, серверного и CCTV-сегментов;</li>
-                        <li>возможность дальнейшего масштабирования сети;</li>
-                        <li>централизованное управление и мониторинг.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Поставленная цель дипломного проекта достигнута, все задачи выполнены в полном объёме.</p>
-                </div>
+<div class="defense-page">
+  <h1 class="defense-title">4 ТЕХНОЛОГИИ ВЕБ</h1>
+  <div class="defense-nums-row">
+    <div class="defense-num"><span class="defense-num-val">16</span><span class="defense-num-label">HTML-страниц</span></div>
+    <div class="defense-num"><span class="defense-num-val">28</span><span class="defense-num-label">изображений</span></div>
+    <div class="defense-num"><span class="defense-num-val">400+</span><span class="defense-num-label">строк CSS</span></div>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Стек технологий</h3>
+    <ul class="defense-list">
+      <li><b>HTML5</b> — семантическая разметка, 16 страниц</li>
+      <li><b>CSS3</b> — Flexbox-вёрстка, CSS-переменные, медиазапросы</li>
+      <li>Без JavaScript — универсальная совместимость, быстрая загрузка</li>
+      <li><b>GitHub Pages</b> — бесплатный хостинг, CI/CD через git push</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Цветовая схема (colorscheme.ru)</h3>
+    <ul class="defense-list">
+      <li>Тип: монохромная (моно), основной тон — бирюзово-зелёный</li>
+      <li>#2F9292 — основной, #07444A — тёмный, #83E3E3 — светлый акцент</li>
+      <li>Предпросмотр светлой и тёмной тем подтверждает читаемость</li>
+      <li>CSS-переменные :root позволяют менять палитру в одном месте</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Компоновка (Flexbox)</h3>
+    <ul class="defense-list">
+      <li><b>Шапка:</b> position:fixed, 92px, логотип + название + тема</li>
+      <li><b>Левое меню:</b> 270px, тёмный фон, 42 пункта, overflow:auto</li>
+      <li><b>Контент:</b> flex:1, justify-content, overflow-y:auto</li>
+      <li><b>Правое меню:</b> 200px, шпаргалки для защиты ДП</li>
+      <li>Адаптивность: медиазапросы для 1200/768px</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Структура сайта</h3>
+    <ul class="defense-list">
+      <li>Папка site/ — 16 HTML-файлов + css/style.css</li>
+      <li>Папка картинки/ — 36 изображений (рядом с site/)</li>
+      <li>Приложения: А — физ.схема (таблица), Б — цветовая, В — кабельный журнал</li>
+      <li>Полное оглавление ПЗ в левом меню (42 пункта, 2 уровня)</li>
+    </ul>
+  </div>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/шаблон.jpg" alt="Макет" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Макет страницы сайта</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/номера_цветов.jpg" alt="Цвета" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Цветовая схема</figcaption>
+    </figure>
+  </div>
+</div>
             </div>
 
             <div class="right-sidebar">
@@ -127,7 +156,7 @@
 <li><a href="defense_project.html">1 ПРОЕКТНАЯ ЧАСТЬ</a></li>
 <li><a href="defense_operation.html">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</a></li>
 <li><a href="defense_economy.html">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</a></li>
-<li><a href="defense_technology.html">4 ТЕХНОЛОГИЯ ВЕБ</a></li>
+<li><a href="defense_technology.html" class="active">4 ТЕХНОЛОГИЯ ВЕБ</a></li>
                     </ul>
                 </nav>
             </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заключение — Пояснительная записка</title>
+    <title>2 Эксплуатационная — защита — Пояснительная записка</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -75,7 +75,7 @@
                     </ol>
                 </li>
 
-                <li><a href="conclusion.html" class="active">ЗАКЛЮЧЕНИЕ</a></li>
+                <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
                 <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
                 <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
                     <ol class="sub-list">
@@ -91,33 +91,93 @@
     <div class="main-content">
         <div class="content-wrapper">
             <div class="content-center">
-                <div class="text-content">
-                    <h1 class="page-title">Заключение</h1>
 
-                    <p class="text-paragraph">В результате выполнения дипломного проекта была разработана структурированная кабельная сеть для офиса интернет-магазина с применением принципа сегментирования трафика по VLAN, выделением DMZ-зоны и защитой периметра при помощи межсетевого экрана.</p>
-
-                    <p class="text-paragraph">В ходе работы решены следующие задачи:</p>
-                    <ul>
-                        <li>разработана архитектура сети по иерархической модели для двух филиалов (B1 + B2);</li>
-                        <li>обоснован выбор активного оборудования D-Link и пассивной инфраструктуры;</li>
-                        <li>составлен кабельный журнал на 60 кабельных линий (Приложение Г);</li>
-                        <li>разработаны схемы уровней L1, L2 и L3, а также планы прокладки СКС;</li>
-                        <li>выполнена конфигурация VLAN, trunk, STP и межвлановой маршрутизации;</li>
-                        <li>настроены сетевые сервисы DHCP, DNS, NTP, HTTP, FTP и Syslog;</li>
-                        <li>рассчитана длина кабеля (325 м с запасом 20%) и общая стоимость проекта (93 188 ₽);</li>
-                        <li>пояснительная записка оформлена в виде сайта на HTML и CSS.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Предложенное решение обеспечивает:</p>
-                    <ul>
-                        <li>логическое разделение трафика и повышение безопасности;</li>
-                        <li>изоляцию пользовательского, серверного и CCTV-сегментов;</li>
-                        <li>возможность дальнейшего масштабирования сети;</li>
-                        <li>централизованное управление и мониторинг.</li>
-                    </ul>
-
-                    <p class="text-paragraph">Поставленная цель дипломного проекта достигнута, все задачи выполнены в полном объёме.</p>
-                </div>
+<div class="defense-page">
+  <h1 class="defense-title">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</h1>
+  <div class="defense-nums-row">
+    <div class="defense-num"><span class="defense-num-val">5</span><span class="defense-num-label">VLAN</span></div>
+    <div class="defense-num"><span class="defense-num-val">7</span><span class="defense-num-label">сетевых сервисов</span></div>
+    <div class="defense-num"><span class="defense-num-val">4</span><span class="defense-num-label">устройства на объект</span></div>
+    <div class="defense-num"><span class="defense-num-val">STP</span><span class="defense-num-label">резервный trunk</span></div>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Конфигурация коммутатора SWM1</h3>
+    <ul class="defense-list">
+      <li>SVI-интерфейсы для каждого VLAN — межвлановая маршрутизация</li>
+      <li>Gi0/1 → SW1 (trunk: VLAN 100,200,999), Gi0/2 → SW2 (trunk: VLAN 100,300,999)</li>
+      <li>SWM1 — корневой мост STP (приоритет 4096)</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">UserGate F100 — зоны безопасности</h3>
+    <ul class="defense-list">
+      <li><b>inside</b> (уровень 100): 10.255.1.1/30 → SWM1</li>
+      <li><b>outside</b> (уровень 0): 172.16.1.1/28 → R1 (интернет)</li>
+      <li><b>DMZ</b> (уровень 50): 192.168.10.1/28 — публичные серверы</li>
+      <li>NAT Masquerade: inside/DMZ → outside; ACL: запрет internet → inside</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Сетевые сервисы (Cisco Packet Tracer)</h3>
+    <ul class="defense-list">
+      <li><b>DHCP</b> — пул B1_USERS: 192.168.40.10-30, шлюз 192.168.40.1</li>
+      <li><b>DNS</b> — зона corp.local: A-записи для всех серверов</li>
+      <li><b>NTP</b> — синхронизация времени оборудования</li>
+      <li><b>HTTP/HTTPS</b> — корпоративный сайт в DMZ</li>
+      <li><b>FTP</b> — файловый обмен в DMZ (cisco/ftpuser)</li>
+      <li><b>Email (SMTP/POP3)</b> — домен corp.local</li>
+    </ul>
+  </div>
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 12px;text-transform:uppercase;">Схема сети в Cisco Packet Tracer</h3>
+  <div class="defense-img-row">
+    <figure style="max-width:100%;">
+      <img src="../картинки/циско1.png" alt="Схема сети Cisco" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.15);">
+      <figcaption>Полная схема сети B1+B2 в Cisco Packet Tracer</figcaption>
+    </figure>
+  </div>
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 12px;text-transform:uppercase;">Конфигурации коммутаторов</h3>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/b1swm.png" alt="SWM1" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>B1-SWM1 — центральный коммутатор</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/b1fw.png" alt="UserGate" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>B1-FW1 — UserGate F100</figcaption>
+    </figure>
+  </div>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/b1sw1.png" alt="SW1" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>B1-SW1 — VLAN 200 (пользователи)</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/b1sw2.png" alt="SW2" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>B1-SW2 — PoE (VLAN 300)</figcaption>
+    </figure>
+  </div>
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 12px;text-transform:uppercase;">Настройка сервисов</h3>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/dhcp.png" alt="DHCP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>DHCP — пул B1_USERS</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/dns.png" alt="DNS" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>DNS — зона corp.local</figcaption>
+    </figure>
+  </div>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/http.png" alt="HTTP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>HTTP/HTTPS в DMZ</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/fpt.png" alt="FTP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>FTP в DMZ</figcaption>
+    </figure>
+  </div>
+</div>
             </div>
 
             <div class="right-sidebar">
@@ -125,7 +185,7 @@
                     <ul>
 <li><a href="defense_intro.html">ВВЕДЕНИЕ</a></li>
 <li><a href="defense_project.html">1 ПРОЕКТНАЯ ЧАСТЬ</a></li>
-<li><a href="defense_operation.html">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</a></li>
+<li><a href="defense_operation.html" class="active">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</a></li>
 <li><a href="defense_economy.html">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</a></li>
 <li><a href="defense_technology.html">4 ТЕХНОЛОГИЯ ВЕБ</a></li>
                     </ul>
