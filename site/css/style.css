@@ -540,3 +540,13 @@ body {
     padding: 10px 12px;
 }
 
+
+/* Ссылки в тексте — чёрный цвет */
+.text-content a {
+    color: #222;
+    text-decoration: none;
+}
+.text-content a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}

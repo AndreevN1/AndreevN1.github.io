@@ -55,13 +55,13 @@
 
                 <li><span class="toc-section-header">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</span>
                     <ol class="sub-list">
-                        <li><a href="economy.html#e1" class="active">3.1 Расчёт длины кабеля</a></li>
-                        <li><a href="economy.html#e2" class="active">3.2 Расчёт кабель-каналов</a></li>
-                        <li><a href="economy.html#e3" class="active">3.3 Материальные затраты</a></li>
-                        <li><a href="economy.html#e4" class="active">3.4 Трудозатраты на монтаж</a></li>
-                        <li><a href="economy.html#e5" class="active">3.5 Стоимость оборудования ТКШ</a></li>
-                        <li><a href="economy.html#e6" class="active">3.6 Структура затрат</a></li>
-                        <li><a href="economy.html#e7" class="active">3.7 Общая стоимость</a></li>
+                        <li><a href="economy.html#e1" class="active">3.1 Сравнение поставщиков</a></li>
+                        <li><a href="economy.html#e2" class="active">3.2 Выбор поставщиков</a></li>
+                        <li><a href="economy.html#e3" class="active">3.3 Норма расхода</a></li>
+                        <li><a href="economy.html#e4" class="active">3.4 Смета затрат</a></li>
+                        <li><a href="economy.html#e5" class="active">3.5 Трудозатраты</a></li>
+                        <li><a href="economy.html#e6" class="active">3.6 Итоговая смета</a></li>
+                        <li><a href="economy.html#e7" class="active">3.7 Выводы</a></li>
                     </ol>
                 </li>
 
@@ -77,6 +77,7 @@
 
                 <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
                 <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
+                <li><a href="application.html">ПРИЛОЖЕНИЯ</a></li>
                 <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
                     <ol class="sub-list">
                         <li><a href="application1.html">Приложение А — Физ. схема</a></li>
@@ -94,162 +95,193 @@
                 <div class="text-content">
                     <h1 class="page-title">3 Экономическая часть</h1>
 
-                    <p class="text-paragraph">Экономическая часть содержит расчёт длины кабеля и стоимости его прокладки, включая затраты на кабель-каналы, монтажные работы и сверление отверстий. Все расчёты выполнены на основании кабельного журнала (Приложение Г), включающего 60 кабельных линий: 40 в филиале B1 и 20 в филиале B2. <strong>Везде применён запас 20%</strong> на технологические нужды, потери при монтаже и резерв для расширения сети.</p>
+                    <p class="text-paragraph">Экономическая часть содержит расчёт стоимости материалов для монтажа СКС на двух объектах: главное здание B1 и филиал B2. В расчёт включены пассивные компоненты — кабель-каналы, лотки, витая пара, розетки, патч-панели и телекоммуникационные шкафы, а также трудозатраты на монтажные работы.</p>
 
-                    <div class="section-title">3.1 Расчёт длины кабеля</div>
-                    <p class="text-paragraph">Суммарная длина кабельных линий определена по кабельному журналу.</p>
+                    <h2 class="section-title" id="e1">3.1 Сравнение поставщиков оборудования и комплектующих</h2>
 
-                    <div class="table-caption">Таблица 3.1 — Длина кабеля по сегментам</div>
-                    <table class="data-table">
-                        <tr><th>Сегмент</th><th>Линий (B1+B2)</th><th>Сумма, м</th></tr>
-                        <tr><td>WAN / периметр (ISP, R, FW)</td><td>3 + 3 = 6</td><td>12</td></tr>
-                        <tr><td>Inside / DMZ (FW ↔ SWM, DMZ)</td><td>2 + 2 = 4</td><td>12</td></tr>
-                        <tr><td>VLAN 100 (серверы)</td><td>9 + 9 = 18</td><td>54</td></tr>
-                        <tr><td>VLAN 999 (администратор)</td><td>1 + 1 = 2</td><td>6</td></tr>
-                        <tr><td>Trunk / STP (магистральные)</td><td>3 + 3 = 6</td><td>37</td></tr>
-                        <tr><td>VLAN 200 (пользователи)</td><td>16 + 0 = 16</td><td>96</td></tr>
-                        <tr><td>VLAN 300 (CCTV-камеры)</td><td>6 + 2 = 8</td><td>54</td></tr>
-                        <tr><th colspan="2">ИТОГО без запаса (B1: 199 м, B2: 72 м)</th><th>271 м</th></tr>
-                        <tr><th colspan="2">С запасом 20%</th><th>325 м</th></tr>
+                    <p class="table-caption">Таблица 3.1 — Сравнение поставщиков: кабель-канал ПВХ 40×25 мм, 2 м/шт</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Поставщик</th><th>Модель / Артикул</th><th>Цена, руб./шт</th><th>Цена, руб./м</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr><td>ВсеИнструменты.ру</td><td>Рувинил РКК-40×25</td><td>255</td><td>127,5</td><td><a href="https://www.vseinstrumenti.ru/product/kabel-kanal-40h25-belyj-2m-ruvinil-rkk-40h25-700851/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ВсеИнструменты.ру</td><td>Промрукав PR.0540251</td><td>351</td><td>175,5</td><td><a href="https://www.vseinstrumenti.ru/product/kabel-kanal-promrukav-belyj-2-j-zamok-v-p-e-40h25-2m-pr-0540251-1104857/" target="_blank">Ссылка</a></td></tr>
+                            <tr style="background:#e8f4f4;"><td><b>ЭТМ</b></td><td><b>IEK ЭЛЕКОР CKK10-040-025-1-K01</b></td><td><b>343</b></td><td><b>171,5</b></td><td><a href="https://www.etm.ru/cat/nn/9726743" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p class="text-paragraph">Выбран: <b>ЭТМ — IEK ЭЛЕКОР</b>, 343 руб./шт (171,52 ₽/м × 2м) — минимальная цена, российский производитель.</p>
+
+                    <p class="table-caption">Таблица 3.2 — Сравнение поставщиков: лоток перфорированный 100×50 мм, 3 м/шт</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Поставщик</th><th>Модель / Артикул</th><th>Цена, руб./3м</th><th>Цена, руб./м</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr><td>ВсеИнструменты.ру</td><td>Промрукав HDZ PR16.1227 (горячеоцинк.)</td><td>3 945</td><td>1 315</td><td><a href="https://www.vseinstrumenti.ru/product/perforirovannyj-lotok-promrukav-standart-hdz-100x50x3000-0-7-mm-3-m-pr16-1227-10487528/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ЭТМ</td><td>DKC 35262 L3000</td><td>512</td><td>171</td><td><a href="https://www.etm.ru/cat/nn/9676016" target="_blank">Ссылка</a></td></tr>
+                            <tr style="background:#e8f4f4;"><td><b>EKF market</b></td><td><b>EKF L5010001-0,55</b></td><td><b>357</b></td><td><b>119</b></td><td><a href="https://ekf.market/catalog/products/l5010001-0-55/" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p class="text-paragraph">Выбран: <b>EKF market — EKF L5010001-0,55</b>, 357 руб./3м — минимальная цена.</p>
+
+                    <p class="table-caption">Таблица 3.3 — Сравнение поставщиков: витая пара U/UTP Cat.5e, бухта 305 м</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Поставщик</th><th>Модель / Артикул</th><th>Цена, руб./бухта</th><th>Цена, руб./м</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr><td>ВсеИнструменты.ру</td><td>NETLAN EC-UU004-5E-PVC-GY (Cat.5e, PVC, серый)</td><td>8 706</td><td>28,5</td><td><a href="https://www.vseinstrumenti.ru/product/kabel-netlan-u-utp-4-pary-kategoriya-5e-vnutrennij-pvc-seryj-305m-ec-uu004-5e-pvc-gy-1288789/" target="_blank">Ссылка</a></td></tr>
+                            <tr style="background:#e8f4f4;"><td><b>ВсеИнструменты.ру</b></td><td><b>Rexant 01-0043 (Cu 24AWG, медь, PVC, серый)</b></td><td><b>12 585</b></td><td><b>41,3</b></td><td><a href="https://www.vseinstrumenti.ru/product/kabel-utp-4pr-24awg-cat5e-305m-rexant-01-0043-770888/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ВсеИнструменты.ру</td><td>Cabeus UTP-4P-Cat.5e-SOLID-GY (Cat.5e, PVC нг(А)-LS)</td><td>15 280</td><td>50,1</td><td><a href="https://www.vseinstrumenti.ru/product/kabel-cabeus-utp-kategoriya-5e-4-pary-0-51mm-vitaya-para-seryj-305-m-utp-4p-cat-5e-solid-gy-1658850/" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p class="text-paragraph">Выбран: <b>Rexant 01-0043</b> — подтверждённая медная жила Cu 24AWG, 12 585 руб./бухта. NETLAN дешевле, однако Rexant имеет дополнительное подтверждение качества жилы.</p>
+
+                    <p class="table-caption">Таблица 3.4 — Сравнение поставщиков: розетка информационная RJ-45 Cat.5e, 1 мод.</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Поставщик</th><th>Модель / Артикул</th><th>Цена, руб./шт</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr style="background:#e8f4f4;"><td><b>ВсеИнструменты.ру</b></td><td><b>DKC VIVA 45038, белая, RJ-45 Cat.5e</b></td><td><b>426</b></td><td><a href="https://www.vseinstrumenti.ru/product/kompyuternaya-rozetka-dkc-viva-1-modul-rj45-cat-5e-belaya-45038-1971160/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ЭТМ</td><td>DKC VIVA 45038, белая, RJ-45 Cat.5e</td><td>648</td><td><a href="https://www.etm.ru/cat/nn/1994095" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p class="text-paragraph">Выбран: <b>ВсеИнструменты.ру — DKC VIVA 45038</b>, 426 руб./шт — минимальная цена. Продукция ДКС, гарантия соответствия Cat.5e.</p>
+
+                    <p class="table-caption">Таблица 3.5 — Сравнение поставщиков: патч-панель 19", 1U, Cat.5e, 24 порта RJ-45</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Поставщик</th><th>Модель / Артикул</th><th>Цена, руб./шт</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr><td>dkcmarket.ru</td><td>DKC RN5PPU24, неэкранированная</td><td>7 023</td><td><a href="https://www.dkcmarket.ru/rn5ppu24.html" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ЭТМ</td><td>ITK PP24-1UC5EU-D05, 1U Cat.5e UTP 24p Dual IDC</td><td>4 868</td><td><a href="https://www.etm.ru/cat/nn/261352" target="_blank">Ссылка</a></td></tr>
+                            <tr style="background:#e8f4f4;"><td><b>ВсеИнструменты.ру</b></td><td><b>NETLAN EC-URP-24-UD2, 1U Cat.5e 24p неэкранированная</b></td><td><b>1 400</b></td><td><a href="https://www.vseinstrumenti.ru/product/panel-netlan-19-1u-24-porta-kategoriya-5e-rj45-8p8c-neekranirovannyj-chernaya-ec-urp-24-ud2-1289216/" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p class="text-paragraph">Выбран: <b>ВсеИнструменты.ру — NETLAN EC-URP-24-UD2</b>, 1 400 руб./шт — минимальная цена при сопоставимых характеристиках (19", 1U, Cat.5e, 24p, RJ-45, неэкранированная).</p>
+
+                    <p class="table-caption">Таблица 3.6 — Сравнение поставщиков: шкаф телеком. напольный 19", 42U, 600×800</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Поставщик</th><th>Модель / Артикул</th><th>Цена, руб./шт</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr style="background:#e8f4f4;"><td><b>ЭТМ</b></td><td><b>ЦМО ШТК-М-42.6.8-1ААА (600×800, дверь стекло)</b></td><td><b>64 547</b></td><td><a href="https://www.etm.ru/cat/nn/2300748" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ВсеИнструменты.ру</td><td>ЦМО ШТК-М-42.6.8-1ААА (та же модель)</td><td>69 359</td><td><a href="https://www.vseinstrumenti.ru/product/napolnyj-telekommunikatsionnyj-shkaf-tsmo-42u-dver-steklo-shtk-m-42-6-8-1aaa-1461301/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ЭТМ</td><td>ЦМО ШТК-М-42.6.10-1ААА (600×1000, глубже)</td><td>69 338</td><td><a href="https://www.etm.ru/cat/nn/3982320" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p class="text-paragraph">Выбран: <b>ЭТМ — ЦМО ШТК-М-42.6.8-1ААА</b>, 64 547 руб./шт — минимальная цена среди трёх вариантов.</p>
+
+                    <p class="table-caption">Таблица 3.7 — Сравнение поставщиков: шкаф телеком. настенный 19", 18U, 600×...</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Поставщик</th><th>Модель / Артикул</th><th>Глубина</th><th>Цена, руб./шт</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr style="background:#e8f4f4;"><td><b>ВсеИнструменты.ру</b></td><td><b>ЦМО ШРН-Э-18.350.1 (дверь металл)</b></td><td><b>350 мм</b></td><td><b>14 094</b></td><td><a href="https://www.vseinstrumenti.ru/product/telekommunikatsionnyj-nastennyj-shkaf-tsmo-19-18u-dver-metall-razbornyj-seryj-shrn-e-18-350-1-1561821/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ЭТМ</td><td>ЦМО ШРН-Э-18.650 (дверь стекло)</td><td>650 мм</td><td>15 961</td><td><a href="https://www.etm.ru/cat/nn/8418344" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>ВсеИнструменты.ру</td><td>ЦМО ШРН-Э-18.650.1 (дверь металл)</td><td>650 мм</td><td>17 791</td><td><a href="https://www.vseinstrumenti.ru/product/telekommunikatsionnyj-nastennyj-shkaf-tsmo-19-18u-dver-metall-razbornyj-seryj-shrn-e-18-650-1-1562176/" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+                    <p class="text-paragraph">Выбран: <b>ВсеИнструменты.ру — ЦМО ШРН-Э-18.350.1</b>, 14 094 руб./шт — минимальная цена. Глубина 350 мм достаточна для размещения коммутаторов в коридорах.</p>
+
+                    <h2 class="section-title" id="e2">3.2 Выбор поставщиков</h2>
+                    <p class="table-caption">Таблица 3.8 — Сводная таблица выбранных поставщиков</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Наименование</th><th>Модель</th><th>Поставщик</th><th>Цена</th><th>Ссылка</th></tr></thead>
+                        <tbody>
+                            <tr><td>Кабель-канал ПВХ 40×25 мм, 2м</td><td>IEK ЭЛЕКОР CKK10-040-025-1-K01</td><td>ЭТМ</td><td>343 руб./шт</td><td><a href="https://www.etm.ru/cat/nn/9726743" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>Лоток перф. 100×50 мм, 3м</td><td>EKF L5010001-0,55</td><td>EKF market</td><td>357 руб./3м</td><td><a href="https://ekf.market/catalog/products/l5010001-0-55/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>Витая пара U/UTP Cat.5e, 305м</td><td>Rexant 01-0043 (Cu 24AWG)</td><td>ВсеИнструменты.ру</td><td>12 585 руб./бухта</td><td><a href="https://www.vseinstrumenti.ru/product/kabel-utp-4pr-24awg-cat5e-305m-rexant-01-0043-770888/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>Розетка RJ-45 Cat.5e, 1 мод.</td><td>DKC VIVA 45038</td><td>ВсеИнструменты.ру</td><td>426 руб./шт</td><td><a href="https://www.vseinstrumenti.ru/product/kompyuternaya-rozetka-dkc-viva-1-modul-rj45-cat-5e-belaya-45038-1971160/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>Патч-панель 19" 1U 24p Cat.5e</td><td>NETLAN EC-URP-24-UD2</td><td>ВсеИнструменты.ру</td><td>1 400 руб./шт</td><td><a href="https://www.vseinstrumenti.ru/product/panel-netlan-19-1u-24-porta-kategoriya-5e-rj45-8p8c-neekranirovannyj-chernaya-ec-urp-24-ud2-1289216/" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>Шкаф напольный 42U, 600×800</td><td>ЦМО ШТК-М-42.6.8-1ААА</td><td>ЭТМ</td><td>64 547 руб./шт</td><td><a href="https://www.etm.ru/cat/nn/2300748" target="_blank">Ссылка</a></td></tr>
+                            <tr><td>Шкаф настенный 18U, 600×350</td><td>ЦМО ШРН-Э-18.350.1</td><td>ВсеИнструменты.ру</td><td>14 094 руб./шт</td><td><a href="https://www.vseinstrumenti.ru/product/telekommunikatsionnyj-nastennyj-shkaf-tsmo-19-18u-dver-metall-razbornyj-seryj-shrn-e-18-350-1-1561821/" target="_blank">Ссылка</a></td></tr>
+                        </tbody>
+                    </table></div>
+
+                    <h2 class="section-title" id="e3">3.3 Норма расхода комплектующих</h2>
+                    <p class="table-caption">Таблица 3.9 — Базовая потребность в материалах</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Наименование</th><th>Ед. изм.</th><th>B1</th><th>B2</th><th>Итого</th></tr></thead>
+                        <tbody>
+                            <tr><td>Кабель-канал ПВХ 40×25 мм</td><td>м</td><td>120</td><td>60</td><td>180</td></tr>
+                            <tr><td>Лоток перфорированный 100×50 мм</td><td>м</td><td>20</td><td>16</td><td>36</td></tr>
+                            <tr><td>Витая пара U/UTP Cat.5e</td><td>м</td><td>199</td><td>72</td><td>271</td></tr>
+                            <tr><td>Розетка информационная RJ-45</td><td>шт</td><td>50</td><td>22</td><td>72</td></tr>
+                            <tr><td>Шкаф напольный 42U</td><td>шт</td><td>1</td><td>1</td><td>2</td></tr>
+                            <tr><td>Шкаф настенный 18U (коридоры)</td><td>шт</td><td>2</td><td>2</td><td>4</td></tr>
+                            <tr><td>Патч-панель 24p Cat.5e</td><td>шт</td><td>2</td><td>1</td><td>3</td></tr>
+                        </tbody>
+                    </table></div>
+
+                    <h2 class="section-title" id="e4">3.4 Смета затрат с учётом запаса 20%</h2>
+                    <p class="text-paragraph">К расходным материалам (кабель-канал, лоток, витая пара, розетки) применён запас 20%. Витая пара Rexant 01-0043 — бухта 305 м: для покрытия 271 м базовой потребности приобретается 2 бухты (610 м).</p>
+
+                    <p class="table-caption">Таблица 3.10 — Смета затрат на материалы и оборудование</p>
+                    <div style="overflow-x:auto;"><table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Наименование / Поставщик</th><th>База</th><th>С запасом</th><th>Кол-во</th><th>Цена, руб.</th><th>Сумма, руб.</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td>Кабель-канал IEK ЭЛЕКОР CKK10-040-025, 2м<br><small><a href="https://www.etm.ru/cat/nn/9726743" target="_blank">ЭТМ</a></small></td>
+                                <td>180 м</td><td>216 м</td><td>108 шт</td><td>343</td><td><b>37 044</b></td>
+                            </tr>
+                            <tr>
+                                <td>Лоток перф. EKF L5010001-0,55, 3м<br><small><a href="https://ekf.market/catalog/products/l5010001-0-55/" target="_blank">EKF market</a></small></td>
+                                <td>36 м</td><td>43,2 м</td><td>15 шт</td><td>357</td><td><b>5 355</b></td>
+                            </tr>
+                            <tr>
+                                <td>Витая пара Rexant 01-0043, 305м/бухта<br><small><a href="https://www.vseinstrumenti.ru/product/kabel-utp-4pr-24awg-cat5e-305m-rexant-01-0043-770888/" target="_blank">ВсеИнструменты.ру</a></small></td>
+                                <td>271 м</td><td>2 бухты (610 м)</td><td>2 бухты</td><td>12 585</td><td><b>25 170</b></td>
+                            </tr>
+                            <tr>
+                                <td>Розетка DKC VIVA 45038 RJ-45 Cat.5e<br><small><a href="https://www.vseinstrumenti.ru/product/kompyuternaya-rozetka-dkc-viva-1-modul-rj45-cat-5e-belaya-45038-1971160/" target="_blank">ВсеИнструменты.ру</a></small></td>
+                                <td>72 шт</td><td>87 шт</td><td>87 шт</td><td>426</td><td><b>37 062</b></td>
+                            </tr>
+                            <tr>
+                                <td>Патч-панель NETLAN EC-URP-24-UD2 19" 1U 24p<br><small><a href="https://www.vseinstrumenti.ru/product/panel-netlan-19-1u-24-porta-kategoriya-5e-rj45-8p8c-neekranirovannyj-chernaya-ec-urp-24-ud2-1289216/" target="_blank">ВсеИнструменты.ру</a></small></td>
+                                <td>3 шт</td><td>3 шт</td><td>3 шт</td><td>1 400</td><td><b>4 200</b></td>
+                            </tr>
+                            <tr>
+                                <td>Шкаф напольный ЦМО ШТК-М-42.6.8-1ААА 42U<br><small><a href="https://www.etm.ru/cat/nn/2300748" target="_blank">ЭТМ</a></small></td>
+                                <td>2 шт</td><td>2 шт</td><td>2 шт</td><td>64 547</td><td><b>129 094</b></td>
+                            </tr>
+                            <tr>
+                                <td>Шкаф настенный ЦМО ШРН-Э-18.350.1 18U<br><small><a href="https://www.vseinstrumenti.ru/product/telekommunikatsionnyj-nastennyj-shkaf-tsmo-19-18u-dver-metall-razbornyj-seryj-shrn-e-18-350-1-1561821/" target="_blank">ВсеИнструменты.ру</a></small></td>
+                                <td>4 шт</td><td>4 шт</td><td>4 шт</td><td>14 094</td><td><b>56 376</b></td>
+                            </tr>
+                            <tr style="font-weight:bold;background:#e8f4f4;">
+                                <td colspan="5"><b>ИТОГО материалы</b></td><td><b>294 301</b></td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+
+                    <h2 class="section-title" id="e5">3.5 Трудозатраты на монтажные работы</h2>
+                    <p class="text-paragraph">Ставка монтажника СКС — <b>600 руб./ч</b>.</p>
+                    <p class="table-caption">Таблица 3.11 — Трудозатраты</p>
+                    <table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Вид работ</th><th>Объём</th><th>Норма, ч/ед.</th><th>Трудоёмкость, ч</th><th>Стоимость, руб.</th></tr></thead>
+                        <tbody>
+                            <tr><td>Монтаж кабель-каналов</td><td>180 м</td><td>0,10</td><td>18,0</td><td>10 800</td></tr>
+                            <tr><td>Прокладка витой пары</td><td>325 м</td><td>0,05</td><td>16,3</td><td>9 780</td></tr>
+                            <tr><td>Сверление отверстий</td><td>54 шт</td><td>0,30</td><td>16,2</td><td>9 720</td></tr>
+                            <tr><td>Монтаж розеток RJ-45</td><td>72 шт</td><td>0,20</td><td>14,4</td><td>8 640</td></tr>
+                            <tr><td>Обжимка, маркировка кабелей</td><td>120 ок.</td><td>0,06</td><td>7,2</td><td>4 320</td></tr>
+                            <tr><td>Тестирование линий</td><td>60 лин.</td><td>0,10</td><td>6,0</td><td>3 600</td></tr>
+                            <tr><td>Монтаж настенных шкафов ЦМО ШРН-Э-18U</td><td>4 шт</td><td>1,50</td><td>6,0</td><td>3 600</td></tr>
+                            <tr style="font-weight:bold;background:#e8f4f4;"><td colspan="3"><b>ИТОГО</b></td><td><b>84,1 ч</b></td><td><b>50 460 руб.</b></td></tr>
+                        </tbody>
                     </table>
 
-                    <div class="section-title">3.2 Расчёт длины кабель-каналов</div>
-                    <p class="text-paragraph">Кабель-канал ПВХ 40×25 мм прокладывается вдоль стен по основным трассам обоих филиалов.</p>
-
-                    <div class="table-caption">Таблица 3.2 — Длина кабель-каналов</div>
-                    <table class="data-table">
-                        <tr><th>Помещение</th><th>Длина трассы, м</th></tr>
-                        <tr><td>Серверная (B1 + B2)</td><td>22</td></tr>
-                        <tr><td>Рабочая зона / open-space</td><td>58</td></tr>
-                        <tr><td>Коридоры</td><td>38</td></tr>
-                        <tr><td>Зоны CCTV</td><td>32</td></tr>
-                        <tr><th>ИТОГО без запаса</th><th>150 м</th></tr>
-                        <tr><th>С запасом 20%</th><th>180 м</th></tr>
+                    <h2 class="section-title" id="e6">3.6 Итоговая смета</h2>
+                    <p class="table-caption">Таблица 3.12 — Итоговая смета проекта</p>
+                    <table class="data-table" style="font-size:13px;">
+                        <thead><tr><th>Статья затрат</th><th>Сумма, руб.</th><th>Доля, %</th></tr></thead>
+                        <tbody>
+                            <tr><td>Материалы и оборудование (с запасом 20%)</td><td>294 301</td><td>71,5 %</td></tr>
+                            <tr><td>Монтажные работы (84,1 ч × 600 руб./ч)</td><td>50 460</td><td>12,2 %</td></tr>
+                            <tr><td>Непредвиденные расходы (20% от п.1+п.2)</td><td>68 952</td><td>16,7 %</td></tr>
+                            <tr style="font-weight:bold;background:#e8f4f4;"><td><b>ИТОГО</b></td><td><b>413 713</b></td><td><b>100 %</b></td></tr>
+                        </tbody>
                     </table>
 
-                    <div class="section-title">3.3 Расчёт количества отверстий</div>
-                    <p class="text-paragraph">Сверление отверстий требуется для прохода кабеля сквозь стены/перегородки и крепления кабель-каналов, розеток, ТКШ.</p>
-
-                    <div class="table-caption">Таблица 3.3 — Сверление отверстий</div>
-                    <table class="data-table">
-                        <tr><th>Назначение</th><th>Кол-во, шт</th></tr>
-                        <tr><td>Проход кабеля сквозь стены</td><td>14</td></tr>
-                        <tr><td>Крепление кабель-каналов (дюбель-гвозди)</td><td>360</td></tr>
-                        <tr><td>Крепление розеток RJ-45</td><td>60</td></tr>
-                        <tr><td>Крепление ТКШ и шкафов доступа</td><td>16</td></tr>
-                        <tr><th>ИТОГО без запаса</th><th>450 шт</th></tr>
-                        <tr><th>С запасом 20%</th><th>540 шт</th></tr>
-                    </table>
-
-                    <div class="section-title">3.4 Материальные затраты</div>
-                    <div class="table-caption">Таблица 3.4 — Стоимость материалов (с учётом запаса 20%)</div>
-                    <table class="data-table">
-                        <tr><th>Наименование</th><th>Ед.</th><th>Кол-во</th><th>Цена, ₽</th><th>Сумма, ₽</th></tr>
-                        <tr><td>Кабель U/UTP Cat 5e 4×2×0,52</td><td>м</td><td>325</td><td>25</td><td>8 125</td></tr>
-                        <tr><td>Кабель-канал ПВХ 40×25</td><td>м</td><td>180</td><td>85</td><td>15 300</td></tr>
-                        <tr><td>Розетка RJ-45 (компьютерная)</td><td>шт</td><td>72</td><td>180</td><td>12 960</td></tr>
-                        <tr><td>Коннекторы RJ-45</td><td>шт</td><td>144</td><td>8</td><td>1 152</td></tr>
-                        <tr><td>Патч-корды 1 м</td><td>шт</td><td>72</td><td>90</td><td>6 480</td></tr>
-                        <tr><td>Дюбель-гвозди, хомуты, гофра</td><td>компл</td><td>1</td><td>2 400</td><td>2 400</td></tr>
-                        <tr><th colspan="4">ИТОГО материалы</th><th>46 417</th></tr>
-                    </table>
-                    <p class="text-paragraph">Розетки: 60 базовых × 1,20 = 72 шт. Коннекторы: 120 (по 2 на линию) × 1,20 = 144 шт. Патч-корды: 60 × 1,20 = 72 шт.</p>
-
-                    <div class="section-title">3.5 Трудозатраты на монтаж</div>
-                    <p class="text-paragraph">Расчёт трудозатрат выполнен на основе средних норм времени по СНиП. Объёмы взяты с учётом 20% запаса.</p>
-
-                    <div class="table-caption">Таблица 3.5 — Трудозатраты на прокладку</div>
-                    <table class="data-table">
-                        <tr><th>Вид работ</th><th>Объём</th><th>Норма, ч/ед.</th><th>Ч/ч</th></tr>
-                        <tr><td>Монтаж кабель-каналов</td><td>180 м</td><td>0,10</td><td>18,0</td></tr>
-                        <tr><td>Прокладка кабеля в канале</td><td>325 м</td><td>0,05</td><td>16,3</td></tr>
-                        <tr><td>Сверление отверстий</td><td>540 шт</td><td>0,03</td><td>16,2</td></tr>
-                        <tr><td>Монтаж розеток RJ-45</td><td>72 шт</td><td>0,20</td><td>14,4</td></tr>
-                        <tr><td>Обжимка и маркировка</td><td>144 шт</td><td>0,05</td><td>7,2</td></tr>
-                        <tr><td>Прозвонка и тестирование</td><td>60 линий</td><td>0,10</td><td>6,0</td></tr>
-                        <tr><th colspan="3">ИТОГО ч/ч</th><th>78,1</th></tr>
-                        <tr><th colspan="3">Стоимость работ (400 ₽/ч)</th><th>31 240</th></tr>
-                    </table>
-
-                    <div class="section-title">3.6 Итоговая смета</div>
-                    <div class="table-caption">Таблица 3.6 — Сводная смета проекта (резерв 20%)</div>
-                    <table class="data-table">
-                        <tr><th>Статья затрат</th><th>Сумма, ₽</th></tr>
-                        <tr><td>Материалы (СКС, с запасом 20%)</td><td>46 417</td></tr>
-                        <tr><td>Монтажные работы</td><td>31 240</td></tr>
-                        <tr><td>Непредвиденные расходы (резерв 20%)</td><td>15 531</td></tr>
-                        <tr><th>ИТОГО по проекту</th><th>93 188 ₽</th></tr>
-                    </table>
-
-                    <p class="text-paragraph">Общая стоимость прокладки кабеля и монтажных работ по проекту с учётом 20% запаса составляет <strong>93 188 рублей</strong>.</p>
-
-                    <div class="section-title">3.7 Расчёт стоимости содержимого ТКШ</div>
-                    <p class="text-paragraph">В проекте два телекоммуникационных шкафа: ТКШ-B1 в главном здании (42U) и ТКШ-B2 в филиале (42U). Оба здания работают как <strong>полностью независимые сети</strong> — каждое со своим интернет-каналом, межсетевым экраном, коммутацией и серверной инфраструктурой. Межсетевое взаимодействие между B1 и B2 не реализовано.</p>
-
-                    <div class="table-caption">Таблица 3.7 — Стоимость оборудования ТКШ-B1 (главное здание, 42U)</div>
-                    <table class="data-table">
-                        <tr><th>Наименование</th><th>Модель</th><th>Кол-во</th><th>Цена, ₽</th><th>Сумма, ₽</th></tr>
-                        <tr><td colspan="5" style="background:#e8f5f5;font-weight:bold;color:#07444A">Активное оборудование</td></tr>
-                        <tr><td>Маршрутизатор</td><td>D-Link DSR-1000AC</td><td>1</td><td>24 900</td><td>24 900</td></tr>
-                        <tr><td>Межсетевой экран</td><td>UserGate F100</td><td>1</td><td>89 000</td><td>89 000</td></tr>
-                        <tr><td>Коммутатор ядра L3</td><td>D-Link DGS-1210-28</td><td>1</td><td>14 800</td><td>14 800</td></tr>
-                        <tr><td>Коммутатор доступа (VLAN 200)</td><td>D-Link DGS-1210-28</td><td>1</td><td>14 800</td><td>14 800</td></tr>
-                        <tr><td>Коммутатор PoE (VLAN 300 / CCTV)</td><td>D-Link DGS-1210-10P</td><td>1</td><td>11 500</td><td>11 500</td></tr>
-                        <tr><td colspan="5" style="background:#e8f5f5;font-weight:bold;color:#07444A">Серверное оборудование</td></tr>
-                        <tr><td>Сервер (DHCP, DNS, NTP, TFTP, Syslog)</td><td>Dell PowerEdge R550</td><td>1</td><td>178 000</td><td>178 000</td></tr>
-                        <tr><td>Сервер (HTTP, HTTPS, FTP, Email — DMZ)</td><td>Dell PowerEdge R550</td><td>1</td><td>178 000</td><td>178 000</td></tr>
-                        <tr><td>Сервер (резервный)</td><td>Dell PowerEdge R550</td><td>1</td><td>178 000</td><td>178 000</td></tr>
-                        <tr><td>Сетевое хранилище (СХД)</td><td>Synology HD6500</td><td>1</td><td>348 000</td><td>348 000</td></tr>
-                        <tr><td colspan="5" style="background:#e8f5f5;font-weight:bold;color:#07444A">Пассивное оборудование</td></tr>
-                        <tr><td>Шкаф напольный 42U 19"</td><td>D-Link NFR-GLS-42U</td><td>1</td><td>44 500</td><td>44 500</td></tr>
-                        <tr><td>Патч-панель 24 порта Cat.5e</td><td>D-Link NPP-C61BLK</td><td>2</td><td>3 400</td><td>6 800</td></tr>
-                        <tr><td>Горизонтальный органайзер 1U</td><td>D-Link NHO-1U</td><td>2</td><td>1 100</td><td>2 200</td></tr>
-                        <tr><td>Блок розеток PDU 1U</td><td>APC AP7516</td><td>1</td><td>6 800</td><td>6 800</td></tr>
-                        <tr><th colspan="4">ИТОГО ТКШ-B1</th><th>1 097 300 ₽</th></tr>
-                    </table>
-
-                    <div class="table-caption">Таблица 3.8 — Стоимость оборудования ТКШ-B2 (филиал, 42U)</div>
-                    <table class="data-table">
-                        <tr><th>Наименование</th><th>Модель</th><th>Кол-во</th><th>Цена, ₽</th><th>Сумма, ₽</th></tr>
-                        <tr><td colspan="5" style="background:#e8f5f5;font-weight:bold;color:#07444A">Активное оборудование</td></tr>
-                        <tr><td>Маршрутизатор</td><td>D-Link DSR-1000AC</td><td>1</td><td>24 900</td><td>24 900</td></tr>
-                        <tr><td>Межсетевой экран</td><td>UserGate F100</td><td>1</td><td>89 000</td><td>89 000</td></tr>
-                        <tr><td>Коммутатор ядра L3</td><td>D-Link DGS-1210-28</td><td>1</td><td>14 800</td><td>14 800</td></tr>
-                        <tr><td>Коммутатор доступа (VLAN 200)</td><td>D-Link DGS-1210-28</td><td>1</td><td>14 800</td><td>14 800</td></tr>
-                        <tr><td>Коммутатор PoE (VLAN 300 / CCTV)</td><td>D-Link DGS-1210-10P</td><td>1</td><td>11 500</td><td>11 500</td></tr>
-                        <tr><td colspan="5" style="background:#e8f5f5;font-weight:bold;color:#07444A">Серверное оборудование</td></tr>
-                        <tr><td>Сервер (DHCP, DNS, NTP, TFTP, Syslog)</td><td>Dell PowerEdge R550</td><td>1</td><td>178 000</td><td>178 000</td></tr>
-                        <tr><td>Сервер (HTTP, HTTPS, FTP, Email — DMZ)</td><td>Dell PowerEdge R550</td><td>1</td><td>178 000</td><td>178 000</td></tr>
-                        <tr><td>Сервер (резервный)</td><td>Dell PowerEdge R550</td><td>1</td><td>178 000</td><td>178 000</td></tr>
-                        <tr><td>Сетевое хранилище (СХД)</td><td>Synology HD6500</td><td>1</td><td>348 000</td><td>348 000</td></tr>
-                        <tr><td colspan="5" style="background:#e8f5f5;font-weight:bold;color:#07444A">Пассивное оборудование</td></tr>
-                        <tr><td>Шкаф напольный 42U 19"</td><td>D-Link NFR-GLS-42U</td><td>1</td><td>44 500</td><td>44 500</td></tr>
-                        <tr><td>Патч-панель 24 порта Cat.5e</td><td>D-Link NPP-C61BLK</td><td>2</td><td>3 400</td><td>6 800</td></tr>
-                        <tr><td>Горизонтальный органайзер 1U</td><td>D-Link NHO-1U</td><td>2</td><td>1 100</td><td>2 200</td></tr>
-                        <tr><td>Блок розеток PDU 1U</td><td>APC AP7516</td><td>1</td><td>6 800</td><td>6 800</td></tr>
-                        <tr><th colspan="4">ИТОГО ТКШ-B2</th><th>1 097 300 ₽</th></tr>
-                    </table>
-
-                    <div class="table-caption">Таблица 3.9 — Сводная стоимость двух ТКШ</div>
-                    <table class="data-table">
-                        <tr><th>Статья</th><th>ТКШ-B1, ₽</th><th>ТКШ-B2, ₽</th><th>Итого, ₽</th></tr>
-                        <tr><td>Активное оборудование</td><td>100 500</td><td>100 500</td><td>201 000</td></tr>
-                        <tr><td>Серверное оборудование и СХД</td><td>882 000</td><td>882 000</td><td>1 764 000</td></tr>
-                        <tr><td>Пассивное оборудование ТКШ</td><td>60 300</td><td>60 300</td><td>120 600</td></tr>
-                        <tr><th>ИТОГО оба ТКШ</th><th>1 097 300</th><th>1 097 300</th><th>2 085 600</th></tr>
-                    </table>
-
-                    <div class="section-title">3.8 Общая стоимость проекта</div>
-                    <div class="table-caption">Таблица 3.10 — Итоговая смета всего проекта</div>
-                    <table class="data-table">
-                        <tr><th>Статья затрат</th><th>Сумма, ₽</th></tr>
-                        <tr><td>СКС — кабель, кабель-каналы, розетки (с запасом 20%)</td><td>46 417</td></tr>
-                        <tr><td>Монтажные работы СКС (с запасом 20%)</td><td>31 240</td></tr>
-                        <tr><td>Непредвиденные расходы 20%</td><td>15 531</td></tr>
-                        <tr><td>Оборудование ТКШ-B1 (главное здание)</td><td>1 097 300</td></tr>
-                        <tr><td>Оборудование ТКШ-B2 (филиал)</td><td>1 097 300</td></tr>
-                        <tr><th>ИТОГО по всему проекту</th><th>2 288 788 ₽</th></tr>
-                    </table>
+                    <h2 class="section-title" id="e7">3.7 Выводы</h2>
+                    <p class="text-paragraph">Общая стоимость материалов, оборудования и монтажных работ для СКС двух объектов составляет <b>413 713 руб.</b></p>
+                    <ul class="text-content" style="margin-left:35px;line-height:1.9;">
+                        <li>Основная доля затрат (71,5 %) — материалы и оборудование. Наибольшие статьи: шкафы 42U (129 094 руб.) и настенные шкафы 18U (56 376 руб.) — итого 185 470 руб. (63,0 % от материалов).</li>
+                        <li>Монтажные работы — 12,2 % (50 460 руб., 84,1 ч при ставке 600 руб./ч). Включён монтаж 4 настенных шкафов ЦМО ШРН-Э-18U для коридоров.</li>
+                        
+                    </ul>
                 </div>
             </div>
 
