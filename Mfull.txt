@@ -1,0 +1,1188 @@
+Решение Модуля 1 (КОД 09.02.06-1-2026)
+
+Адресация
+
+Устройство  Интерфейс  IP/маска  VLAN  Подсеть  Шлюз  Комментарий
+ISP  ens18 (WAN)  DHCP  DHCP  DHCP  в сторону магистрали
+ISP  ens19 (HQ)  172.16.1.1/28  172.16.1.0/28  к HQ-RTR
+ISP  ens20 (BR)  172.16.2.1/28  172.16.2.0/28  к BR-RTR
+HQ-RTR  ens18 (WAN)  172.16.1.2/28  172.16.1.0/28  172.16.1.1  к ISP
+HQ-RTR  ens19.100  192.168.100.1/27  100  192.168.100.0/27  GW VLAN100
+HQ-RTR  ens19.200  192.168.200.1/27  200  192.168.200.0/27  GW VLAN200
+HQ-RTR  ens19.999  192.168.99.1/29  999  192.168.99.0/29  GW MGMT
+HQ-RTR  gre1  10.255.255.1/30  10.255.255.0/30  туннель в BR
+BR-RTR  ens18 (WAN)  172.16.2.2/28  172.16.2.0/28  172.16.2.1  к ISP
+BR-RTR  ens19 (LAN)  192.168.30.1/28  192.168.30.0/28  GW BR
+BR-RTR  gre1  10.255.255.2/30  10.255.255.0/30  туннель в HQ
+HQ-SRV  ens18.100  192.168.100.10/27  100  192.168.100.0/27  192.168.100.1
+BR-SRV  ens18  192.168.30.10/28  192.168.30.0/28  192.168.30.1
+HQ-CLI  ens18.200  DHCP (резерв 192.168.200.10)  200  192.168.200.0/27  192.168.200.1
+
+МОДУЛЬ 1 - Настройка сетевой инфраструктуры
+
+1. Общие действия на каждой машине
+
+Выполни на: ISP, HQ-RTR, BR-RTR, HQ-SRV, BR-SRV, HQ-CLI.
+
+1.1 Hostname (FQDN)
+
+hostnamectl set-hostname hq-rtr.au-team.irpo
+
+1.2 Часовой пояс
+
+timedatectl set-timezone Asia/Yekaterinburg
+
+timedatectl
+
+Проверки
+
+hostname -f
+
+2. ISP - etcnet, маршрутизация и NAT в интернет
+
+2.1 Включить IPv4 forwarding
+
+vim /etc/net/sysctl.conf
+
+net.ipv4.ip_forward = 1
+
+2.2 Сеть (ens18=WAN DHCP, ens19=к HQ, ens20=к BR)
+
+WAN (DHCP)
+
+mkdir -p /etc/net/ifaces/ens18
+
+vim /etc/net/ifaces/ens18/options
+
+TYPE=eth
+
+BOOTPROTO=dhcp
+
+ONBOOT=yes
+
+К HQ-RTR
+
+mkdir -p /etc/net/ifaces/ens19
+
+vim /etc/net/ifaces/ens19/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens19/ipv4address
+
+172.16.1.1/28
+
+К BR-RTR
+
+mkdir -p /etc/net/ifaces/ens20
+
+vim /etc/net/ifaces/ens20/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens20/ipv4address
+
+172.16.2.1/28
+
+systemctl restart network
+
+ip -br a
+
+ip r
+
+NAT (вариант iptables) на Isp, HQ-RTR и BR-RTR
+
+apt-get update
+
+apt-get install -y iptables
+
+iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE
+
+iptables-save > /etc/sysconfig/iptables
+
+systemctl enable iptables
+
+Проверки
+
+ping -c 3 8.8.8.8
+
+3. HQ-RTR - WAN + VLAN 100/200/999 (router-on-a-stick)
+
+3.1 IPv4 forwarding
+
+vim /etc/net/sysctl.conf
+
+net.ipv4.ip_forward = 1
+
+sysctl -p /etc/net/sysctl.conf
+
+3.2 WAN (к ISP)
+
+mkdir -p /etc/net/ifaces/ens18
+
+vim /etc/net/ifaces/ens18/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens18/ipv4address
+
+172.16.1.2/28
+
+vim /etc/net/ifaces/ens18/ipv4route
+
+default via 172.16.1.1
+
+vim /etc/net/ifaces/ens18/resolv.conf
+
+nameserver 77.88.8.7
+
+3.3 Trunk + VLAN подинтерфейсы (ens19.100/200/999)
+
+mkdir -p /etc/net/ifaces/ens19
+
+vim /etc/net/ifaces/ens19/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+VLAN100
+
+mkdir -p /etc/net/ifaces/ens19.100
+
+vim /etc/net/ifaces/ens19.100/options
+
+TYPE=vlan
+
+HOST=ens19
+
+VID=100
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens19.100/ipv4address
+
+192.168.100.1/27
+
+VLAN200
+
+mkdir -p /etc/net/ifaces/ens19.200
+
+vim /etc/net/ifaces/ens19.200/options
+
+TYPE=vlan
+
+HOST=ens19
+
+VID=200
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens19.200/ipv4address
+
+192.168.200.1/27
+
+VLAN999
+
+mkdir -p /etc/net/ifaces/ens19.999
+
+vim /etc/net/ifaces/ens19.999/options
+
+TYPE=vlan
+
+HOST=ens19
+
+VID=999
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens19.999/ipv4address
+
+192.168.99.1/29
+
+3.4 Применить
+
+systemctl restart network
+
+ip -br a
+
+ip r
+
+4. BR-RTR - WAN + LAN
+
+IPv4 forwarding
+
+vim /etc/net/sysctl.conf
+
+net.ipv4.ip_forward = 1
+
+WAN
+
+mkdir -p /etc/net/ifaces/ens18
+
+vim /etc/net/ifaces/ens18/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens18/ipv4address
+
+172.16.2.2/28
+
+vim /etc/net/ifaces/ens18/ipv4route
+
+default via 172.16.2.1
+
+vim /etc/net/ifaces/ens18/resolv.conf
+
+#nameserver 77.88.8.8
+
+LAN
+
+mkdir -p /etc/net/ifaces/ens19
+
+vim /etc/net/ifaces/ens19/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens19/ipv4address
+
+192.168.30.1/28
+
+systemctl restart network
+
+ip -br a
+
+ip r
+
+5. HQ-SRV - VLAN100
+
+mkdir -p /etc/net/ifaces/ens18
+
+vim /etc/net/ifaces/ens18/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens18/resolv.conf
+
+Search au-team.irpo
+
+#nameserver 77.88.8.8
+
+mkdir -p /etc/net/ifaces/ens18.100
+
+vim /etc/net/ifaces/ens18.100/options
+
+TYPE=vlan
+
+HOST=ens18
+
+VID=100
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens18.100/ipv4address
+
+192.168.100.10/27
+
+vim /etc/net/ifaces/ens18.100/ipv4route
+
+default via 192.168.100.1
+
+systemctl restart network
+
+ip -br a
+
+ip r
+
+6. BR-SRV
+
+mkdir -p /etc/net/ifaces/ens18
+
+vim /etc/net/ifaces/ens18/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+vim /etc/net/ifaces/ens18/ipv4address
+
+192.168.30.10/28
+
+vim /etc/net/ifaces/ens18/ipv4route
+
+default via 192.168.30.1
+
+systemctl restart network
+
+ip -br a
+
+ip r
+
+7. HQ-CLI - VLAN200 (DHCP)
+
+mkdir -p /etc/net/ifaces/ens18
+
+vim /etc/net/ifaces/ens18/options
+
+TYPE=eth
+
+BOOTPROTO=static
+
+ONBOOT=yes
+
+mkdir -p /etc/net/ifaces/ens18.200
+
+vim /etc/net/ifaces/ens18.200/options
+
+TYPE=vlan
+
+HOST=ens18
+
+VID=200
+
+BOOTPROTO=dhcp
+
+ONBOOT=yes
+
+systemctl restart network
+
+ip -br a
+
+ip r
+
+Пользователи и SSH (HQ-SRV BR-SRV)
+
+8.1 Пользователь sshuser (UID 2026) + sudo без пароля
+
+useradd sshuser -u 2026
+
+Passwd shhuser
+
+Vim /etc/sudoers.d/sshuser
+
+sshuser ALL=(ALL:ALL) NOPASSWD: ALL
+
+su - sshuser
+
+usermod -aG wheel sshuser
+
+8.2 SSHD hardening (порт 2026, только sshuser, 2 попытки, баннер)
+
+apt-get install -y openssh-server
+
+vim /etc/openssh/sshd_config
+
+Port 2026
+
+AllowUsers sshuser
+
+MaxAuthTries 2
+
+Banner /etc/openssh/banner
+
+echo "Authorized access only" > /etc/openssh/banner
+
+sshd -t
+
+systemctl enable --now sshd
+
+systemctl restart sshd
+
+ss -lntp | grep ':2026'
+
+9. Пользователь net_admin (HQ-RTR и BR-RTR)
+
+Useradd net_admin
+
+Passwd net_admin
+
+usermod -aG wheel net_admin
+
+Vim /etc/sudoers.d/net_admin
+
+net_admin ALL=(ALL:ALL) NOPASSWD: ALL
+
+su - net_admin
+
+10. GRE-туннель HQ <-> BR (HQ-RTR и BR-RTR)
+
+10.1 HQ-RTR
+
+mkdir -p /etc/net/ifaces/gre1
+
+vim /etc/net/ifaces/gre1/options
+
+TYPE=iptun
+
+TUNTYPE=gre
+
+TUNLOCAL=172.16.1.2
+
+TUNREMOTE=172.16.2.2
+
+TUNOPTIONS='ttl 64'
+
+vim /etc/net/ifaces/gre1/ipv4address
+
+10.255.255.1/30
+
+10.2 BR-RTR
+
+mkdir -p /etc/net/ifaces/gre1
+
+vim /etc/net/ifaces/gre1/options
+
+TYPE=iptun
+
+TUNTYPE=gre
+
+TUNLOCAL=172.16.2.2
+
+TUNREMOTE=172.16.1.2
+
+TUNOPTIONS='ttl 64'
+
+vim /etc/net/ifaces/gre1/ipv4address
+
+10.255.255.2/30
+
+10.3 Применить и проверить
+
+systemctl restart network
+
+ip -br a | grep -E 'gre1|tun' || true
+
+ping -c 2 10.255.255.1
+
+ping -c 2 10.255.255.2
+
+11. OSPF (FRR)
+
+11.1 Установка и включение ospfd (на обоих роутерах)
+
+apt-get update
+
+apt-get install -y frr
+
+vim /etc/frr/daemons
+
+ospfd=yes
+
+systemctl enable --now frr
+
+systemctl restart frr
+
+11.2 HQ-RTR - конфигурация vtysh
+
+vtysh
+
+conf t
+
+interface ens18
+
+ip ospf passive
+
+exit
+
+interface ens19
+
+ip ospf passive
+
+exit
+
+router ospf
+
+ospf router-id 1.1.1.1
+
+network 10.255.255.0/30 area 0
+
+network 192.168.100.0/27 area 0
+
+network 192.168.200.0/27 area 0
+
+network 192.168.99.0/29 area 0
+
+Exit
+
+interface gre1
+
+ip ospf authentication message-digest
+
+ip ospf message-digest-key 1 md5 P@ssw0rd
+
+ip ospf network point-to-point
+
+exit
+
+exit
+
+end
+
+write memory
+
+11.3 BR-RTR - конфигурация vtysh (пример)
+
+vtysh
+
+conf t
+
+interface ens18
+
+ip ospf passive
+
+exit
+
+interface ens19
+
+ip ospf passive
+
+exit
+
+router ospf
+
+ospf router-id 2.2.2.2
+
+network 10.255.255.0/30 area 0
+
+network 192.168.30.0/28 area 0
+
+exit
+
+interface gre1
+
+ip ospf authentication message-digest
+
+ip ospf message-digest-key 1 md5 P@ssw0rd
+
+ip ospf network point-to-point
+
+exit
+
+end
+
+write memory
+
+11.4 Проверки
+
+vtysh -c 'show ip ospf neighbor'
+
+vtysh -c 'show ip route ospf'
+
+ip r | grep ospf || true
+
+13. DHCP на HQ-RTR для VLAN200
+
+apt-get update
+
+apt-get install -y dhcp-server
+
+vim /etc/dhcp/dhcpd.conf
+
+subnet 192.168.200.0 netmask 255.255.255.224 {
+
+range 192.168.200.50 192.168.200.100;
+
+option routers 192.168.200.1;
+
+option domain-name "au-team.irpo";
+
+option domain-name-servers 192.168.100.10;
+
+}
+
+#
+
+vim /etc/sysconfig/dhcpd
+
+DHCPD_INTERFACE=ens19.200
+
+Dhcpd -t
+
+systemctl enable --now dhcpd
+
+systemctl restart dhcpd
+
+systemctl status dhcpd --no-pager
+
+Проверки на HQ-CLI
+
+ip -br a
+
+cat /etc/resolv.conf
+
+14. DNS на HQ-SRV (dnsmasq) - прямая и обратные зоны
+
+apt-get update
+
+apt-get install -y dnsmasq bind-utils
+
+mkdir -p /etc/dnsmasq.conf.d
+
+vim /etc/dnsmasq.conf.d/au-team.conf
+
+Домен
+
+domain=au-team.irpo
+
+local=/au-team.irpo/
+
+Слушаем HQ-SRV (основной DNS) + localhost
+
+bind-interfaces
+
+listen-address=127.0.0.1,192.168.100.10
+
+Forwarders
+
+no-resolv
+
+server=77.88.8.7
+
+server=77.88.8.3
+
+--- A-записи по таблице 3 ---
+
+address=/hq-rtr.au-team.irpo/192.168.100.1
+
+address=/br-rtr.au-team.irpo/192.168.30.1
+
+address=/hq-srv.au-team.irpo/192.168.100.10
+
+address=/hq-cli.au-team.irpo/192.168.200.10
+
+address=/br-srv.au-team.irpo/192.168.30.10
+
+ISP-интерфейсы по таблице 3
+
+address=/docker.au-team.irpo/172.16.1.1
+
+address=/web.au-team.irpo/172.16.2.1
+
+--- PTR-записи (только где в таблице 3 указано A,PTR) ---
+
+ptr-record=1.100.168.192.in-addr.arpa,hq-rtr.au-team.irpo
+
+ptr-record=10.100.168.192.in-addr.arpa,hq-srv.au-team.irpo
+
+ptr-record=10.200.168.192.in-addr.arpa,hq-cli.au-team.irpo
+
+Vim /etc/sysconfig/dnsmasq - -interface ens18.100
+
+systemctl enable --now dnsmasq
+
+systemctl restart dnsmasq
+
+dnsmasq --test
+
+ss -lntup | grep ':53' || true
+
+Модуль 2
+
+Задание 1 - Samba DC
+
+apt-get install task-samba-dc -y
+
+rm -f  /etc/samba/smb.conf
+
+rm -rf /var/lib/samba/
+
+rm -rf /var/cache/samba/
+
+mkdir -p /var/lib/samba/sysvol
+
+В /etc/net/ifaces/ens18/resolv.conf
+
+search au-team.irpo
+
+nameserver 127.0.0.1
+
+samba-tool domain provision
+
+Realm: au-team.irpo
+Domain [au-team]:enter
+
+Server Role (dc, member, standalone) [dc]:enter
+
+DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]: enter
+
+DNS forwarder IP address (write 'none' to disable forwarding) [127.0.0.1]: 77.88.8.8
+
+cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
+
+overwrite: y
+
+systemctl enable --now samba
+
+samba-tool group add hq
+
+for i in {1..5}; do
+
+>samba-tool user add hquser$i P@ssw0rd;
+
+>samba-tool user setexpiry hquser$i --noexpiry;
+
+>samba-tool group addmembers "hq" hquser$i;
+
+>done
+
+kinit Administrator
+
+Далее в hq-rtr заходим в конфигурационный файл /etc/dhcp/dhcpd.conf меняем здесь:
+
+option domain-name-servers      адрес br-srv
+
+systemctl restart dhcpd
+
+На Hq-cli
+
+systemctl restart network
+
+Заходим на HQ-CLI --> Меню(снизу слева) --> Раздел Приложения --> Администрирование --> Центр управления системой --> Раздел Пользователи --> Аутентификация
+
+Выбираем пункт Домен Active Directory
+
+Вводим au-team.irpo в поле Домен
+
+Листаем вниз и нажимаем применить
+
+roleadd hq wheel
+
+далее заходим в файл по пути nano /etc/sudoers.d/hq вставляем в этот файл
+
+Cmnd_Alias SHELLCMD = /bin/cat, /bin/grep, /usr/bin/id
+
+WHEEL_USERS ALL=(ALL:ALL) SHELLCMD
+
+Задание 2. Сконфигурируйте файловое хранилище на сервере HQ-SRV:
+
+apt-get install –y mdadm
+
+mdadm --create /dev/md0 –l 0 –n 2 /dev/sdb /dev/sdc
+
+mdadm --detail --scan --verbose | tee -a /etc/mdadm.conf
+
+mkfs.ext4 /dev/md0
+
+Редактируем файл /etc/fstab, прописывае следущее:
+
+/dev/md0    /raid    ext4    defaults    0    0
+
+mkdir /raid
+
+mount -av
+
+Lsblk
+
+Задание 3. Настройте сервер сетевой файловой системы (nfs) на HQ-SRV:
+
+apt-get install nfs-server -y
+
+mkdir /raid/nfs
+
+chmod -R 777 /raid/nfs
+
+Открываем файл /etc/exports и пишем в нем:
+
+/raid/nfs 192.168.200.0/28(rw)
+
+exportfs -arv
+
+systemctl enable --now nfs-server
+
+Переходим на HQ-CLI
+
+Прописываем в терминале
+
+mkdir /mnt/nfs
+
+chmod -R 777 /mnt/nfs
+
+Далее заходим в файл /etc/fstab прописываем в новой строчке
+
+192.168.100.2:/raid/nfs /mnt/nfs nfs defaults 0 0
+
+df -h
+
+Задание 4.
+
+Открываем файл /etc/chrony.conf на машине ISP
+
+переходим в файл /etc/chrony.conf
+
+Меняет строчки
+
+local stratum 5
+
+Коментируем
+
+pool pool.ntp.org iburst
+
+После чего добавляем строчки:
+
+server ntp0.ntp-servers.net iburst prefer minstratum 4
+
+allow 0.0.0.0/0
+
+Перезагружаем chronyd
+
+systemctl restart chronyd
+
+прописываем на всех машинах
+
+apt-get update && apt-get install chrony -y
+
+редактируем /etc/chrony.conf
+
+Комментируем
+
+pool pool.ntp.org iburst
+
+Добавляем строки
+
+server 172.16.1.1 iburst
+
+Перезагружаем chronyd
+
+systemctl restart chronyd
+
+Для машин BR-RTR BR-SRV сервер будет 172.16.2.1 Для HQ-SRV HQ-CLI HQ-RTR сервер будет 172.16.1.1 соответственно
+
+Задание 5. Сконфигурируйте ansible на сервере BR-SRV:
+
+apt-get update && apt-get install –y ansible sshpass
+
+Приведем файл инвентаря Ansible к следующему виду, отредактировав конфигурационный файл по пути /etc/ansible/hosts любым удобным текстовым редактором, например vim или nano:
+
+br-rtr ansible_ssh_host=192.168.3.1 ansible_ssh_user=net_admin ansible_ssh_pass=P@ssword
+
+hq-rtr ansible_ssh_host=172.16.1.2 ansible_ssh_user=net_admin ansible_ssh_pass=P@ssword
+
+hq-srv ansible_ssh_host=192.168.100.2 ansible_ssh_user=sshuser ansible_ssh_pass=P@ssword ansible_ssh_port=2026
+
+hq-cli ansible_ssh_host=192.168.200.3 ansible_ssh_user=Administrator@au-team.irpo ansible_ssh_pass=P@ssword
+
+Редактируем файл /etc/ansible/ansible.cfg, чтобы отключить проверку ключа хоста при подключении по SSH:
+
+Находим строчку "host_key_checking = False" и раскоментируем ёё
+
+#host_key_checking = False >> host_key_checking = False
+
+ansible all -m ping
+
+Если у вас выводит кучу красного текста, необходимо перезапустить ssh на всех машинках котроые указаны в ansible.cfg
+
+systemctl restart sshd
+
+Задание 6.Разверните веб приложение в docker на сервере BR-SRV
+
+apt-get update && apt-get install docker-engine docker-compose -y
+
+systemctl enable --now docker
+
+mount /dev/sr0    /mnt/
+
+docker load -i /mnt/docker/site_latest.tar
+
+docker load -i /mnt/docker/mariadb_latest.tar
+
+docker images
+
+Создаем файл по пути /root/compose.yaml
+
+services:
+
+  database:
+
+    container_name: db
+
+    image: mariadb:10.11
+
+    restart: always
+
+    ports:
+
+      - "3306:3306"
+
+    environment:
+
+      MARIADB_DATABASE: testdb
+
+      MARIADB_USER: test
+
+      MARIADB_PASSWORD: P@ssw0rd
+
+      MARIADB_ROOT_PASSWORD: root
+
+  app:
+
+    container_name: tespapp
+
+    image: site:latest
+
+    restart: always
+
+    ports:
+
+      - "8080:8000"
+
+    environment:
+
+      DB_TYPE: maria
+
+      DB_HOST: 192.168.3.2
+
+      DB_PORT: "3306"
+
+      DB_NAME: testdb
+
+      DB_USER: test
+
+      DB_PASS: P@ssw0rd
+
+    depends_on:
+
+      - database
+
+docker compose up -d
+
+docker logs -f tespapp
+
+Задание 7. Разверните веб приложение на сервере HQ-SRV
+
+apt-get install lamp-server -y
+
+mount /dev/sr0   /mnt/
+
+cp /mnt/web/index.php   /var/www/html/
+
+cp /mnt/web/logo.png   /var/www/html/
+
+Заходим в файл /var/www/html/index.php и изменяем параметры:
+
+$servername = "localhost";
+
+$username = "webc";
+
+$password = "P@ssw0rd";
+
+$dbname = "webdb";
+
+systemctl enable --now mariadb
+
+mariadb -u root
+
+CREATE DATABASE webdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE USER 'webc'@'localhost' IDENTIFIED BY 'P@ssw0rd';
+
+GRANT ALL PRIVILEGES ON webdb.* TO 'webc'@'localhost';
+
+FLUSH PRIVILEGES;
+
+EXIT;
+
+systemctl enable --now httpd2
+
+mariadb -u webc -p webdb < /mnt/web/dump.sql
+
+Задание 8. На маршрутизаторах сконфигурируйте статическую трансляцию портов:
+
+Начнем с машины HQ-RTR
+
+iptables -t nat -A PREROUTING -i ens18 -p tcp --dport 2026 -j DNAT --to-destination 192.168.100.2:2026
+
+iptables -t nat -A PREROUTING -i ens18 -p tcp --dport 8080 -j DNAT --to-destination 192.168.100.2:80
+
+iptables-save >> /etc/sysconfig/iptables
+
+Машина BR-RTR
+
+iptables -t nat -A PREROUTING -i ens18 -p tcp --dport 2026 -j DNAT --to-destination 192.168.100.2:2026
+
+iptables -t nat -A PREROUTING -i ens18 -p tcp --dport 8080 -j DNAT --to-destination 192.168.100.2:8080
+
+iptables-save >> /etc/sysconfig/iptables
+
+Задание 9.Настройте веб-сервер nginx как обратный прокси-сервер на ISP
+
+apt-get install nginx -y
+
+переходим в файл по пути /etc/nginx/sites-available.d/default.conf
+
+вписываем в него
+
+server {
+
+    listen 80;
+
+    server_name web.au-team.irpo;
+
+    location / {
+
+        proxy_pass http://172.16.1.2:8080;
+
+    }
+
+}
+
+server {
+
+    listen 80;
+
+    server_name docker.au-team.irpo;
+
+    location / {
+
+        proxy_pass http://172.16.2.2:8080;
+
+    }
+
+}
+
+ln -sf /etc/nginx/sites-available.d/default.conf /etc/nginx/sites-enabled.d/
+
+systemctl enable --now nginx
+
+далее заходим в HQ-CLI файл по пути /etc/hosts в нем прописываем
+
+172.16.1.1 web.au-team.irpo
+
+172.16.2.1 docker.au-team.irpo
+
+Задание 10. На маршрутизаторе ISP настройте web-based аутентификацию:
+
+apt-get install apache2-htpasswd
+
+htpasswd -c /etc/nginx/.htpasswd WEB
+
+вписываем пароль P@ssw0rd 2 раза далее заходим в файл /etc/nginx/sites-available.d/default.conf добавляем
+
+server {
+
+    listen 80;
+
+    server_name web.au-team.irpo;
+
+    location / {
+
+        proxy_pass http://172.16.1.2:8080;
+
+        auth_basic "Restructed area";
+
+        auth_basic_user_file /etc/nginx/.htpasswd;
+
+    }
+
+}
+
+server {
+
+    listen 80;
+
+    server_name docker.au-team.irpo;
+
+    location / {
+
+        proxy_pass http://172.16.2.2:8080;
+
+    }
+
+}
+
+systemctl restart nginx
+
+Задание 11. Удобным способом установите приложение Яндекс Браузер на HQ-CLI
+
+apt-get install yandex-browser
+
+============================================================
+МОДУЛЬ 3
+
+Задание 1. Выполните импорт пользователей в домен au-team.irpo
+
+BR-SRV:
+mount /dev/sr0 /mnt/
+
+# Проверить файл
+wc -l /mnt/Users.csv
+# Должно быть 301 (300 пользователей + шапка)
+
+head -n1 /mnt/Users.csv
+# Поля: First Name;Last Name;Role;Phone;OU;Street;ZIP/Postal Code;City;Country/Region;Password
+
+# Посмотреть уникальные OU (их 5 штук)
+awk -F ';' 'NR>1 {print $5}' /mnt/Users.csv | sort | uniq
+# Cloud storage, IT, Manager, Overal, Supporter
+
+# Создать скрипт импорта
+vim import_user.sh
+
+#!/bin/bash
+csv_file="$1"
+
+# Create OU
+awk -F ';' 'NR>1 {print $5}' "$csv_file" | sort | uniq | while read ou;
+do
+        samba-tool ou add OU="$ou",DC=au-team,DC=irpo;
+done
+
+# Create Users
+while IFS=";" read -r firstName lastName role phone ou street zip city country password;
+do
+        if [ "$firstName" == "First Name" ];
+        then
+                continue
+        fi
+
+        username="${firstName,,}.${lastName,,}"
+
+        samba-tool user add "$username" P@ssw0rd1 \
+                --given-name="$firstName" \
+                --surname="$lastName" \
+                --telephone-number="$phone" \
+                --job-title="$role" \
+                --userou="OU=$ou"
+        samba-tool user setexpiry "$username" --noexpiry
+done < "$csv_file"
+
+# Выдать права на исполнение
+chmod +x import_user.sh
+
+# Запустить скрипт
+./import_user.sh /mnt/Users.csv
