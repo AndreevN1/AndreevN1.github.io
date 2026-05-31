@@ -550,3 +550,81 @@ body {
     color: var(--primary);
     text-decoration: underline;
 }
+
+/* ═══ JS ФИЧИ ═══ */
+
+/* 8. Прогресс чтения */
+#reading-progress {
+    position: fixed;
+    top: var(--hdr-h);
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--light);
+    z-index: 1100;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 6px var(--primary);
+}
+
+
+/* 4. Зум overlay */
+#zoom-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+#zoom-overlay.zoom-visible { opacity: 1; }
+.zoom-container {
+    position: relative;
+    max-width: 92vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.zoom-img {
+    max-width: 90vw;
+    max-height: 82vh;
+    border-radius: 6px;
+    object-fit: contain;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    cursor: zoom-out;
+}
+.zoom-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: background 0.2s;
+}
+.zoom-close:hover { background: var(--dark); }
+.zoom-caption {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 80vw;
+    font-style: italic;
+}
+
+
+/* 10. Активный якорь */
+.toc-menu a.anchor-active {
+    background: rgba(47,146,146,0.25) !important;
+    border-left-color: var(--light) !important;
+    color: var(--light) !important;
+}

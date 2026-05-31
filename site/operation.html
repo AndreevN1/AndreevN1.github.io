@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Эксплуатационная часть — Пояснительная записка</title>
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
 </head>
 <body>
 
@@ -26,18 +27,16 @@
                 <li><a href="terms.html">ТЕРМИНЫ И ОПРЕДЕЛЕНИЯ</a></li>
                 <li><a href="abbreviations.html">ПЕРЕЧЕНЬ СОКРАЩЕНИЙ И ОБОЗНАЧЕНИЙ</a></li>
                 <li><a href="introduction.html">ВВЕДЕНИЕ</a></li>
-                <li><a href="theoretical.html">1 ТЕОРЕТИЧЕСКАЯ ЧАСТЬ</a></li>
-                <li><a href="practical.html">2 ПРАКТИЧЕСКАЯ ЧАСТЬ</a></li>
 
                 <li><span class="toc-section-header">1 ПРОЕКТНАЯ ЧАСТЬ</span>
                     <ol class="sub-list">
                         <li><a href="project.html#s1">1.1 Описание архитектуры сети</a></li>
                         <li><a href="project.html#s2">1.2 Выбор активного оборудования</a></li>
                         <li><a href="project.html#s3">1.3 Выбор пассивного оборудования</a></li>
-                        <li><a href="project.html#s4">1.4 Маркировка</a></li>
-                        <li><a href="project.html#s5">1.5 Кабельный журнал</a></li>
-                        <li><a href="project.html#s6">1.6 Схемы сети L1, L2, L3</a></li>
-                        <li><a href="project.html#s7">1.7 Фасад ТКШ</a></li>
+                        <li><a href="project.html#s4">1.4 Размещение оборудования</a></li>
+                        <li><a href="project.html#s5">1.5 Маркировка оборудования и кабельных линий</a></li>
+                        <li><a href="project.html#s6">1.6 Кабельный журнал</a></li>
+                        <li><a href="project.html#s7">1.7 Схемы сети</a></li>
                         <li><a href="project.html#plans">1.8 Планы зданий</a></li>
                     </ol>
                 </li>
@@ -77,7 +76,6 @@
 
                 <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
                 <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
-                <li><a href="application.html">ПРИЛОЖЕНИЯ</a></li>
                 <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
                     <ol class="sub-list">
                         <li><a href="application1.html">Приложение А — Физ. схема</a></li>
@@ -97,7 +95,8 @@
 
                     <p class="text-paragraph">Эксплуатационная часть описывает настройку оборудования, IP-адресацию, конфигурацию VLAN и сетевых сервисов, обеспечивающих функционирование спроектированной сети.</p>
 
-                    <div class="section-title">2.1 Таблица VLAN</div>
+                    <div class="section-title" id="e1">2.1 Таблица VLAN</div>
+                                        <p class="text-paragraph">В таблице 3 представлен список VLAN с указанием назначения каждого сегмента сети.</p>
                     <div class="table-caption">Таблица 3 — Список VLAN</div>
                     <table class="data-table">
                         <tr><th>VLAN ID</th><th>Имя</th><th>Подсеть B1</th><th>Подсеть B2</th><th>Назначение</th></tr>
@@ -108,7 +107,8 @@
                         <tr><td>999</td><td>MGMT</td><td>192.168.99.0/29</td><td>192.168.199.0/29</td><td>Управление сетью</td></tr>
                     </table>
 
-                    <div class="section-title">2.2 IP-адресация</div>
+                    <div class="section-title" id="e2">2.2 IP-адресация</div>
+                                        <p class="text-paragraph">В таблице 4 представлено распределение IP-адресов по VLAN для объектов B1 и B2.</p>
                     <div class="table-caption">Таблица 4 — Распределение IP-адресов</div>
                     <table class="data-table">
                         <tr><th>Устройство / сегмент</th><th>B1</th><th>B2</th></tr>
@@ -122,7 +122,8 @@
                         <tr><td>SVI VLAN 999 (MGMT)</td><td>192.168.99.1</td><td>192.168.199.1</td></tr>
                     </table>
 
-                    <div class="section-title">2.3 Назначение портов SWM (B1)</div>
+                    <div class="section-title" id="e3">2.3 Назначение портов SWM (B1)</div>
+                                        <p class="text-paragraph">В таблице 5 представлено назначение портов центрального коммутатора SWM1.</p>
                     <div class="table-caption">Таблица 5 — Распределение портов центрального коммутатора</div>
                     <table class="data-table">
                         <tr><th>Интерфейс</th><th>Подключение</th><th>Режим</th><th>VLAN</th></tr>
@@ -134,7 +135,7 @@
                         <tr><td>Fa0/24</td><td>Uplink к FW1 (inside)</td><td>routed</td><td>—</td></tr>
                     </table>
 
-                    <div class="section-title">2.4 Конфигурация центрального коммутатора (фрагмент)</div>
+                    <div class="section-title" id="e4">2.4 Конфигурация центрального коммутатора (фрагмент)</div>
                     <div class="code-block">hostname B1-SWM1
 ip routing
 
@@ -191,7 +192,7 @@ ip route 0.0.0.0 0.0.0.0 10.255.1.1</div>
                         <img src="../картинки/b1sw2.png" alt="Конфигурация коммутатора доступа SW2" class="scheme-image">
                     </div>
 
-                    <div class="section-title">2.5 Настройка сетевых сервисов (скриншоты)</div>
+                    <div class="section-title" id="e5">2.5 Настройка сетевых сервисов (скриншоты)</div>
                     <p class="text-paragraph">Ниже приведены скриншоты настройки серверных служб: DHCP, DNS, NTP, TFTP, FTP, HTTP и Email.</p>
 
                     <div class="figure">
@@ -222,7 +223,7 @@ ip route 0.0.0.0 0.0.0.0 10.255.1.1</div>
                         <img src="../картинки/email.png" alt="Настройка почтового сервера" class="scheme-image">
                     </div>
 
-                    <div class="section-title">2.6 Команды проверки</div>
+                    <div class="section-title" id="e6">2.6 Команды проверки</div>
                     <p class="text-paragraph">Для проверки работоспособности применяются команды: <code>show vlan brief</code>, <code>show interfaces trunk</code>, <code>show ip interface brief</code>, <code>show spanning-tree</code>, <code>show ip route</code>, <code>show running-config</code>.</p>
                 </div>
             </div>
