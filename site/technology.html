@@ -43,12 +43,12 @@
 
                 <li><span class="toc-section-header">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</span>
                     <ol class="sub-list">
-                        <li><a href="operation.html#p1">2.1 Таблица VLAN</a></li>
-                        <li><a href="operation.html#p2">2.2 IP-адресация</a></li>
-                        <li><a href="operation.html#p3">2.3 Назначение портов</a></li>
-                        <li><a href="operation.html#p4">2.4 Конфигурация оборудования</a></li>
-                        <li><a href="operation.html#p5">2.5 Настройка сервисов</a></li>
-                        <li><a href="operation.html#p6">2.6 Команды проверки</a></li>
+                        <li><a href="operation.html#e1">2.1 Таблица VLAN</a></li>
+                        <li><a href="operation.html#e2">2.2 IP-адресация</a></li>
+                        <li><a href="operation.html#e3">2.3 Назначение портов</a></li>
+                        <li><a href="operation.html#e4">2.4 Конфигурация оборудования</a></li>
+                        <li><a href="operation.html#e5">2.5 Настройка сервисов</a></li>
+                        <li><a href="operation.html#e6">2.6 Команды проверки</a></li>
                     </ol>
                 </li>
 
@@ -58,19 +58,18 @@
                         <li><a href="economy.html#e2">3.2 Выбор поставщиков</a></li>
                         <li><a href="economy.html#e3">3.3 Норма расхода</a></li>
                         <li><a href="economy.html#e4">3.4 Смета затрат</a></li>
-                        <li><a href="economy.html#e5">3.5 Трудозатраты</a></li>
-                        <li><a href="economy.html#e6">3.6 Итоговая смета</a></li>
-                        <li><a href="economy.html#e7">3.7 Выводы</a></li>
+                        <li><a href="economy.html#e5">3.5 Итоговая смета</a></li>
+                        <li><a href="economy.html#e6">3.6 Выводы</a></li>
                     </ol>
                 </li>
 
                 <li><span class="toc-section-header">4 ТЕХНОЛОГИИ ВЕБ</span>
                     <ol class="sub-list">
                         <li><a href="technology.html#w1" class="active">4.1 Подготовительный этап</a></li>
-                        <li><a href="technology.html#w2" class="active">4.2 Дизайн и цветовая схема</a></li>
-                        <li><a href="technology.html#w3" class="active">4.3 Вёрстка</a></li>
-                        <li><a href="technology.html#w4" class="active">4.4 Технические средства</a></li>
-                        <li><a href="technology.html#w5" class="active">4.5 Физическая схема</a></li>
+                        <li><a href="technology.html#w2" class="active">4.2 Вёрстка</a></li>
+                        <li><a href="technology.html#w3" class="active">4.3 Дизайн</a></li>
+                        <li><a href="technology.html#w4" class="active">4.4 Технические и программные средства</a></li>
+                        <li><a href="technology.html#w5" class="active">4.5 Разработка навигации. Физическая схема</a></li>
                     </ol>
                 </li>
 
@@ -91,9 +90,9 @@
         <div class="content-wrapper">
             <div class="content-center">
                 <div class="text-content">
-                    <h1 class="page-title">4 Веб-технологии</h1>
+                    <h1 class="page-title">4 ТЕХНОЛОГИИ ВЕБ</h1>
 
-                    <div class="section-title">4.1 Подготовительный этап</div>
+                    <div class="section-title" id="w1">4.1 Подготовительный этап</div>
                     <p class="text-paragraph"><strong>Цель сайта:</strong> оформление пояснительной записки к дипломному проекту в виде интерактивного веб-сайта, доступного для просмотра в любом браузере.</p>
                     <p class="text-paragraph"><strong>Задачи сайта:</strong></p>
                     <ul>
@@ -103,7 +102,7 @@
                         <li>реализовать резиновую вёрстку без использования JavaScript.</li>
                     </ul>
 
-                    <div class="section-title">4.2 Вёрстка</div>
+                    <div class="section-title" id="w2">4.2 Вёрстка</div>
                     <p class="text-paragraph">Сайт реализован на чистых HTML5 и CSS3. Применён принцип отдельного файла на каждую страницу с общим CSS-файлом <code>css/style.css</code>. Для вёрстки используется flexbox-модель и медиазапросы для адаптивности.</p>
 
                     <p class="text-paragraph">Принцип вложенности тегов:</p>
@@ -129,7 +128,7 @@
 &lt;/body&gt;
 &lt;/html&gt;</div>
 
-                    <div class="section-title">4.3 Дизайн</div>
+                    <div class="section-title" id="w3">4.3 Дизайн</div>
                     <p class="text-paragraph"><strong>Макет:</strong> трёхколоночная резиновая компоновка. Шапка фиксированная, высота 90px. Левое меню — 320px (содержание). Правое меню — 230px (для защиты). Центральная область — резиновая.</p>
 
                     <p class="text-paragraph"><strong>Цветовая схема</strong> подобрана на сайте colorscheme.ru. Светлая тема, монохромная (один тон с разной насыщенностью).</p>
@@ -178,12 +177,17 @@
                         <img src="../картинки/светлая тема.jpg" alt="Светлая тема" class="screenshot">
                     </div>
 
-                    <div class="figure">
-                        <img src="../картинки/темная тема.jpg" alt="Тёмная тема" class="screenshot">
-                    </div>
-
-                    <div class="section-title">4.4 Технические и программные средства</div>
+                    
                                         <p class="text-paragraph">В таблице 20 представлен перечень технологий, использованных при создании сайта.</p>
+
+                    <h2 class="section-title" id="w4">4.4 Технические и программные средства</h2>
+                    <p class="text-paragraph">Для разработки сайта пояснительной записки использовался следующий набор технических и программных средств.</p>
+                    <p class="text-paragraph">Разработка выполнялась на персональном компьютере под управлением операционной системы Windows 11. Для написания HTML и CSS кода применялся текстовый редактор Visual Studio Code (VS Code) версии 1.89 — он обеспечивает подсветку синтаксиса, автодополнение кода и встроенный терминал.</p>
+                    <p class="text-paragraph">Для симуляции сетевой топологии и настройки оборудования использовался Cisco Packet Tracer 8.2. Цветовая схема сайта разрабатывалась с помощью онлайн-сервиса Colorscheme.ru, позволяющего строить монохромные, аналоговые и контрастные палитры.</p>
+                    <p class="text-paragraph">Публикация сайта выполнена через сервис GitHub Pages — бесплатный хостинг статических сайтов, интегрированный с системой контроля версий Git. Проект доступен по адресу в сети интернет после загрузки репозитория и включения функции Pages в настройках.</p>
+                    <p class="text-paragraph">Совокупность перечисленных инструментов обеспечила полный цикл разработки: от проектирования цветовой схемы и написания кода до тестирования и публикации готового сайта.</p>
+
+                    
                     <div class="table-caption">Таблица 20 — Используемые технологии</div>
                     <table class="data-table">
                         <tr><th>Технология / ПО</th><th>Версия</th><th>Назначение</th></tr>
@@ -194,7 +198,7 @@
                         <tr><td>colorscheme.ru</td><td>—</td><td>Подбор цветовой схемы</td></tr>
                     </table>
 
-                    <div class="section-title">4.5 Разработка навигации. Физическая схема</div>
+                    <div class="section-title" id="w5">4.5 Разработка навигации. Физическая схема</div>
                     <p class="text-paragraph">Каждый раздел пояснительной записки реализован в виде отдельного HTML-файла. Все страницы используют общий CSS.</p>
 
                                         <p class="text-paragraph">В таблице 21 представлена физическая схема сайта — список файлов и соответствующих страниц.</p>

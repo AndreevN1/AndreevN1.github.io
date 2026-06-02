@@ -43,12 +43,12 @@
 
                 <li><span class="toc-section-header">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</span>
                     <ol class="sub-list">
-                        <li><a href="operation.html#p1" class="active">2.1 Таблица VLAN</a></li>
-                        <li><a href="operation.html#p2" class="active">2.2 IP-адресация</a></li>
-                        <li><a href="operation.html#p3" class="active">2.3 Назначение портов</a></li>
-                        <li><a href="operation.html#p4" class="active">2.4 Конфигурация оборудования</a></li>
-                        <li><a href="operation.html#p5" class="active">2.5 Настройка сервисов</a></li>
-                        <li><a href="operation.html#p6" class="active">2.6 Команды проверки</a></li>
+                        <li><a href="operation.html#e1" class="active">2.1 Таблица VLAN</a></li>
+                        <li><a href="operation.html#e2" class="active">2.2 IP-адресация</a></li>
+                        <li><a href="operation.html#e3" class="active">2.3 Назначение портов</a></li>
+                        <li><a href="operation.html#e4" class="active">2.4 Конфигурация оборудования</a></li>
+                        <li><a href="operation.html#e5" class="active">2.5 Настройка сервисов</a></li>
+                        <li><a href="operation.html#e6" class="active">2.6 Команды проверки</a></li>
                     </ol>
                 </li>
 
@@ -58,19 +58,18 @@
                         <li><a href="economy.html#e2">3.2 Выбор поставщиков</a></li>
                         <li><a href="economy.html#e3">3.3 Норма расхода</a></li>
                         <li><a href="economy.html#e4">3.4 Смета затрат</a></li>
-                        <li><a href="economy.html#e5">3.5 Трудозатраты</a></li>
-                        <li><a href="economy.html#e6">3.6 Итоговая смета</a></li>
-                        <li><a href="economy.html#e7">3.7 Выводы</a></li>
+                        <li><a href="economy.html#e5">3.5 Итоговая смета</a></li>
+                        <li><a href="economy.html#e6">3.6 Выводы</a></li>
                     </ol>
                 </li>
 
                 <li><span class="toc-section-header">4 ТЕХНОЛОГИИ ВЕБ</span>
                     <ol class="sub-list">
                         <li><a href="technology.html#w1">4.1 Подготовительный этап</a></li>
-                        <li><a href="technology.html#w2">4.2 Дизайн и цветовая схема</a></li>
-                        <li><a href="technology.html#w3">4.3 Вёрстка</a></li>
-                        <li><a href="technology.html#w4">4.4 Технические средства</a></li>
-                        <li><a href="technology.html#w5">4.5 Физическая схема</a></li>
+                        <li><a href="technology.html#w2">4.2 Вёрстка</a></li>
+                        <li><a href="technology.html#w3">4.3 Дизайн</a></li>
+                        <li><a href="technology.html#w4">4.4 Технические и программные средства</a></li>
+                        <li><a href="technology.html#w5">4.5 Разработка навигации. Физическая схема</a></li>
                     </ol>
                 </li>
 
@@ -91,7 +90,7 @@
         <div class="content-wrapper">
             <div class="content-center">
                 <div class="text-content">
-                    <h1 class="page-title">2 Эксплуатационная часть</h1>
+                    <h1 class="page-title">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</h1>
 
                     <p class="text-paragraph">Эксплуатационная часть описывает настройку оборудования, IP-адресацию, конфигурацию VLAN и сетевых сервисов, обеспечивающих функционирование спроектированной сети.</p>
 
@@ -164,71 +163,132 @@ ip route 0.0.0.0 0.0.0.0 10.255.1.1</div>
                     <div class="section-title">2.4 Конфигурация устройств (скриншоты)</div>
                     <p class="text-paragraph">Ниже приведены скриншоты настройки активного оборудования сети: маршрутизатора, межсетевого экрана и коммутаторов B1.</p>
 
+                    <p class="text-paragraph">На рисунке 9 представлена общая физическая топология сети двух объектов B1 и B2 в среде Cisco Packet Tracer.</p>
                     <div class="figure">
-                        <img src="../картинки/циско1.png" alt="Топология сети в Cisco Packet Tracer" class="scheme-image">
+                        <img src="../картинки/циско1.png" alt="Общая топология сети в Cisco Packet Tracer" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 9 — Общая топология сети в Cisco Packet Tracer</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 10 представлена конфигурация маршрутизатора B1-R1 (1841), подключённого к провайдеру объекта B1.</p>
                     <div class="figure">
-                        <img src="../картинки/роутер1.png" alt="Конфигурация маршрутизатора, часть 1" class="scheme-image">
+                        <img src="../картинки/роутер1.png" alt="Настройки маршрутизатора B1-R1" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 10 — Настройки маршрутизатора B1-R1</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 11 представлена конфигурация маршрутизатора B2-R1 (1841), подключённого к провайдеру объекта B2.</p>
                     <div class="figure">
-                        <img src="../картинки/роутер2.png" alt="Конфигурация маршрутизатора, часть 2" class="scheme-image">
+                        <img src="../картинки/роутер2.png" alt="Настройки маршрутизатора B2-R1" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 11 — Настройки маршрутизатора B2-R1</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 12 представлена конфигурация межсетевого экрана B1-FW1 на базе UserGate F100 с зонами безопасности.</p>
                     <div class="figure">
-                        <img src="../картинки/b1fw.png" alt="Конфигурация межсетевого экрана B1" class="scheme-image">
+                        <img src="../картинки/b1fw.png" alt="Настройки межсетевого экрана B1-FW1 (UserGate F100)" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 12 — Настройки межсетевого экрана B1-FW1 (UserGate F100)</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 13 представлена конфигурация центрального L3-коммутатора B1-SWM1 с настройкой VLAN и SVI-интерфейсов.</p>
                     <div class="figure">
-                        <img src="../картинки/b1swm.png" alt="Конфигурация центрального коммутатора B1" class="scheme-image">
+                        <img src="../картинки/b1swm.png" alt="Настройки центрального коммутатора B1-SWM1" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 13 — Настройки центрального коммутатора B1-SWM1</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 14 представлена конфигурация коммутатора доступа B1-SW1 (VLAN 200 — пользователи).</p>
                     <div class="figure">
-                        <img src="../картинки/b1sw1.png" alt="Конфигурация коммутатора доступа SW1" class="scheme-image">
+                        <img src="../картинки/b1sw1.png" alt="Настройки коммутатора доступа B1-SW1" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 14 — Настройки коммутатора доступа B1-SW1</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 15 представлена конфигурация PoE-коммутатора B1-SW2 (VLAN 300 — IP-камеры).</p>
                     <div class="figure">
-                        <img src="../картинки/b1sw2.png" alt="Конфигурация коммутатора доступа SW2" class="scheme-image">
+                        <img src="../картинки/b1sw2.png" alt="Настройки коммутатора доступа B1-SW2 (PoE)" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 15 — Настройки коммутатора доступа B1-SW2 (PoE)</p>
                     </div>
 
                     <div class="section-title" id="e5">2.5 Настройка сетевых сервисов (скриншоты)</div>
                     <p class="text-paragraph">Ниже приведены скриншоты настройки серверных служб: DHCP, DNS, NTP, TFTP, FTP, HTTP и Email.</p>
 
+                    <p class="text-paragraph">На рисунке 16 представлена конфигурацию сервиса DHCP с пулами адресов для VLAN пользователей.</p>
                     <div class="figure">
-                        <img src="../картинки/dhcp.png" alt="Настройка DHCP-сервера" class="scheme-image">
+                        <img src="../картинки/dhcp.png" alt="Настройка сервиса DHCP" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 16 — Настройка сервиса DHCP</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 17 представлена конфигурацию DNS-сервера с зоной corp.local и A-записями узлов сети.</p>
                     <div class="figure">
-                        <img src="../картинки/dns.png" alt="Настройка DNS-сервера" class="scheme-image">
+                        <img src="../картинки/dns.png" alt="Настройка сервиса DNS" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 17 — Настройка сервиса DNS</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 18 представлена настройку NTP-сервера, обеспечивающего синхронизацию времени на всех устройствах сети.</p>
                     <div class="figure">
-                        <img src="../картинки/ntp.png" alt="Настройка NTP-сервера" class="scheme-image">
+                        <img src="../картинки/ntp.png" alt="Настройка сервиса NTP" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 18 — Настройка сервиса NTP</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 19 представлена конфигурацию TFTP-сервера для хранения резервных копий конфигураций сетевых устройств.</p>
                     <div class="figure">
-                        <img src="../картинки/tftp.png" alt="Настройка TFTP-сервера" class="scheme-image">
+                        <img src="../картинки/tftp.png" alt="Настройка сервиса TFTP" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 19 — Настройка сервиса TFTP</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 20 представлена конфигурацию FTP-сервера в зоне DMZ с учётными записями пользователей.</p>
                     <div class="figure">
-                        <img src="../картинки/fpt.png" alt="Настройка FTP-сервера" class="scheme-image">
+                        <img src="../картинки/fpt.png" alt="Настройка сервиса FTP" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 20 — Настройка сервиса FTP</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 21 представлена настройку HTTP/HTTPS-сервера корпоративного сайта в зоне DMZ.</p>
                     <div class="figure">
-                        <img src="../картинки/http.png" alt="Настройка HTTP-сервера" class="scheme-image">
+                        <img src="../картинки/http.png" alt="Настройка сервиса HTTP" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 21 — Настройка сервиса HTTP</p>
                     </div>
 
+                    <p class="text-paragraph">На рисунке 22 представлена конфигурацию почтового сервера (SMTP/POP3) в зоне DMZ с доменом corp.local.</p>
                     <div class="figure">
-                        <img src="../картинки/email.png" alt="Настройка почтового сервера" class="scheme-image">
+                        <img src="../картинки/email.png" alt="Настройка почтового сервиса Email" style="max-width:100%;border-radius:5px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+                        <p style="text-align:center;margin-top:8px;font-size:14px;color:#555;">Рисунок 22 — Настройка почтового сервиса Email</p>
                     </div>
 
                     <div class="section-title" id="e6">2.6 Команды проверки</div>
-                    <p class="text-paragraph">Для проверки работоспособности применяются команды: <code>show vlan brief</code>, <code>show interfaces trunk</code>, <code>show ip interface brief</code>, <code>show spanning-tree</code>, <code>show ip route</code>, <code>show running-config</code>.</p>
-                </div>
+                    <p class="text-paragraph">После завершения настройки сетевой инфраструктуры выполняется проверка корректности конфигурации. Ниже приведены основные команды диагностики в Cisco Packet Tracer.</p>
+
+                    <div class="sub-title">Проверка VLAN</div>
+                    <div class="code-block">show vlan brief</div>
+                    <p class="text-paragraph">Отображает сводную таблицу всех настроенных VLAN с идентификаторами, именами и активными портами. Подтверждает корректную сегментацию сети.</p>
+
+                    <div class="sub-title">Проверка trunk-соединений</div>
+                    <div class="code-block">show interfaces trunk</div>
+                    <p class="text-paragraph">Выводит порты в режиме trunk с разрешёнными и активными VLAN. Подтверждает правильную передачу тегированного трафика между коммутаторами.</p>
+
+                    <div class="sub-title">Проверка IP-интерфейсов (SVI)</div>
+                    <div class="code-block">show ip interface brief</div>
+                    <p class="text-paragraph">Отображает состояние всех IP-интерфейсов. Статус «up/up» у SVI-интерфейсов подтверждает работу межвлановой маршрутизации.</p>
+
+                    <div class="sub-title">Проверка таблицы маршрутизации</div>
+                    <div class="code-block">show ip route</div>
+                    <p class="text-paragraph">Выводит таблицу маршрутизации L3-коммутатора SWM1, включая подключённые подсети (C) и статические маршруты (S). Подтверждает доступность всех сегментов.</p>
+
+                    <div class="sub-title">Проверка протокола STP</div>
+                    <div class="code-block">show spanning-tree</div>
+                    <p class="text-paragraph">Показывает состояние STP для каждого VLAN. Подтверждает, что SWM1 является корневым мостом (Root Bridge) и резервные линии в состоянии Blocking.</p>
+
+                    <div class="sub-title">Проверка текущей конфигурации</div>
+                    <div class="code-block">show running-config</div>
+                    <p class="text-paragraph">Выводит полную конфигурацию устройства в оперативной памяти: VLAN, интерфейсы, протоколы и маршруты.</p>
+
+                    <div class="sub-title">Проверка связи</div>
+                    <div class="code-block">ping [IP-адрес назначения]</div>
+                    <p class="text-paragraph">Проверка сетевой связности по ICMP. Результат «Success rate is 100 percent» подтверждает корректность маршрутизации между VLAN-сегментами.</p>
+
+                    <div class="sub-title">Проверка таблицы ARP</div>
+                    <div class="code-block">show arp</div>
+                    <p class="text-paragraph">Отображает таблицу соответствия IP- и MAC-адресов активных узлов. Применяется при диагностике проблем с разрешением адресов.</p>
             </div>
 
-            <div class="right-sidebar">
+                </div>
+
+        <div class="right-sidebar">
                 <nav class="right-menu">
                     <ul>
 <li><a href="defense_intro.html">ВВЕДЕНИЕ</a></li>
