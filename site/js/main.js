@@ -116,41 +116,16 @@ function initKPICounters() {
    Подсвечивает пункт меню соответствующий видимому разделу
 ────────────────────────────────────────────────────────────── */
 function initScrollSpy() {
-    const content = document.querySelector('.content-center');
-    const currentPage = location.pathname.split('/').pop() || 'index.html';
-
-    // Только на страницах с якорями
-    const anchorPages = ['project.html','operation.html','economy.html',
-                         'technology.html','theoretical.html','practical.html'];
-    if (!anchorPages.includes(currentPage) || !content) return;
-
-    const sections = content.querySelectorAll('[id]');
-    if (sections.length === 0) return;
-
     const menuLinks = document.querySelectorAll('.toc-menu a[href*="#"]');
+    if (menuLinks.length === 0) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const id = entry.target.id;
-
-            menuLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                const isMatch = href.includes(`#${id}`);
-                link.classList.toggle('anchor-active', isMatch);
-                // Прокручиваем меню к активному пункту
-                if (isMatch) {
-                    link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-                }
-            });
+    // Подсветка только по клику — снимаем со всех, ставим на нажатую
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuLinks.forEach(l => l.classList.remove('anchor-active'));
+            link.classList.add('anchor-active');
         });
-    }, {
-        root: content,
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0
     });
-
-    sections.forEach(s => observer.observe(s));
 }
 
 /* ──────────────────────────────────────────────────────────────
