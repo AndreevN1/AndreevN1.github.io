@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Эксплуатационная — защита — Пояснительная записка</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html"><img src="../картинки/лого.jpg" alt="Логотип" class="logo-img" style="cursor:pointer;"></a>
+        </div>
+        <div class="header-text">
+            <div class="header-college">государственное бюджетное профессиональное образовательное учреждение «Пермский политехнический колледж имени Н.Г. Славянова»</div>
+            <div class="header-pz-label">Пояснительная записка</div>
+            <div class="header-theme">ПРОЕКТИРОВАНИЕ СТРУКТУРИРОВАННОЙ КАБЕЛЬНОЙ СЕТИ ДЛЯ ОФИСА ИНТЕРНЕТ-МАГАЗИНА, С СЕГМЕНТИРОВАНИЕМ СЕТИ</div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <nav class="toc-menu">
+            <ol>
+                
+                <li><a href="terms.html">ТЕРМИНЫ И ОПРЕДЕЛЕНИЯ</a></li>
+                <li><a href="abbreviations.html">ПЕРЕЧЕНЬ СОКРАЩЕНИЙ И ОБОЗНАЧЕНИЙ</a></li>
+                <li><a href="introduction.html">ВВЕДЕНИЕ</a></li>
+
+                <li><span class="toc-section-header">1 ПРОЕКТНАЯ ЧАСТЬ</span>
+                    <ol class="sub-list">
+                        <li><a href="project.html#s1">1.1 Описание архитектуры сети</a></li>
+                        <li><a href="project.html#s2">1.2 Выбор активного оборудования</a></li>
+                        <li><a href="project.html#s3">1.3 Выбор пассивного оборудования</a></li>
+                        <li><a href="project.html#s4">1.4 Размещение оборудования</a></li>
+                        <li><a href="project.html#s5">1.5 Маркировка оборудования и кабельных линий</a></li>
+                        <li><a href="project.html#s6">1.6 Кабельный журнал</a></li>
+                        <li><a href="project.html#s7">1.7 Схемы сети</a></li>
+                        <li><a href="project.html#plans">1.8 Планы зданий</a></li>
+                    </ol>
+                </li>
+
+                <li><span class="toc-section-header">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</span>
+                    <ol class="sub-list">
+                        <li><a href="operation.html#e1">2.1 Таблица VLAN</a></li>
+                        <li><a href="operation.html#e2">2.2 IP-адресация</a></li>
+                        <li><a href="operation.html#e3">2.3 Назначение портов</a></li>
+                        <li><a href="operation.html#e4">2.4 Конфигурация оборудования</a></li>
+                        <li><a href="operation.html#e5">2.5 Настройка сервисов</a></li>
+                        <li><a href="operation.html#e6">2.6 Команды проверки</a></li>
+                    </ol>
+                </li>
+
+                <li><span class="toc-section-header">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</span>
+                    <ol class="sub-list">
+                        <li><a href="economy.html#e1">3.1 Сравнение поставщиков</a></li>
+                        <li><a href="economy.html#e2">3.2 Выбор поставщиков</a></li>
+                        <li><a href="economy.html#e3">3.3 Норма расхода</a></li>
+                        <li><a href="economy.html#e4">3.4 Смета затрат</a></li>
+                        <li><a href="economy.html#e5">3.5 Итоговая смета</a></li>
+                        <li><a href="economy.html#e6">3.6 Выводы</a></li>
+                    </ol>
+                </li>
+
+                <li><span class="toc-section-header">4 ТЕХНОЛОГИИ WEB</span>
+                    <ol class="sub-list">
+                        <li><a href="technology.html#w1">4.1 Подготовительный этап</a></li>
+                        <li><a href="technology.html#w2">4.2 Разработка навигации. Физическая схема сайта</a></li>
+                        <li><a href="technology.html#w3">4.3 Технические и программные средства</a></li>
+                        <li><a href="technology.html#w4">4.4 Дизайн</a></li>
+                        <li><a href="technology.html#w5">4.5 Вёрстка</a></li>
+                    </ol>
+                </li>
+
+                <li><a href="conclusion.html">ЗАКЛЮЧЕНИЕ</a></li>
+                <li><a href="list.html">СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ</a></li>
+                <li><span class="toc-section-header">ПРИЛОЖЕНИЯ</span>
+                    <ol class="sub-list">
+                        <li><a href="application1.html">Приложение А — Физ. схема</a></li>
+                        <li><a href="application2.html">Приложение Б — Цветовая схема</a></li>
+                        <li><a href="application3.html">Приложение В — Кабельный журнал</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="content-center">
+
+<div class="defense-page">
+  <h1 class="defense-title">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</h1>
+  <div class="defense-nums-row">
+    <div class="defense-num"><span class="defense-num-val">2</span><span class="defense-num-label">здания</span></div>
+    <div class="defense-num"><span class="defense-num-val">4</span><span class="defense-num-label">VLAN на объект</span></div>
+    <div class="defense-num"><span class="defense-num-val">2</span><span class="defense-num-label">DMZ-сервера</span></div>
+    <div class="defense-num"><span class="defense-num-val">GRE</span><span class="defense-num-label">туннель + OSPF</span></div>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Общая топология</h3>
+    <p style="margin:0;font-size:0.9rem;line-height:1.6;color:#333;">
+      Сеть — два здания: B1 (главное) и B2 (филиал), каждое со своим провайдером. GRE-туннель с OSPF между зданиями. Внутри — L3-коммутатор SWM1, межсетевой экран ASA, коммутаторы доступа.
+    </p>
+  </div>
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 8px;text-transform:uppercase;">Топология в Cisco Packet Tracer</h3>
+  <div class="defense-img-row">
+    <figure style="max-width:100%;">
+      <img src="../картинки/циско1.png" alt="Cisco PT" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.15);">
+      <figcaption>Полная топология сети в Cisco Packet Tracer</figcaption>
+    </figure>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Таблица VLAN</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+      <thead><tr style="background:var(--primary);color:#fff;">
+        <th style="padding:7px 10px;">VLAN</th><th style="padding:7px 10px;">Имя</th>
+        <th style="padding:7px 10px;">Подсеть B1</th><th style="padding:7px 10px;">Подсеть B2</th>
+        <th style="padding:7px 10px;">Назначение</th>
+      </tr></thead>
+      <tbody>
+        <tr style="background:#f9fafb;"><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">100</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">SERVERS</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">192.168.30.0/28</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">192.168.130.0/28</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">Серверный сегмент</td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">200</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">USERS</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">192.168.40.0/27</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">192.168.140.0/27</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">Пользователи</td></tr>
+        <tr style="background:#f9fafb;"><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">300</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">CCTV</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">192.168.60.0/27</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">192.168.160.0/27</td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">Камеры (PoE)</td></tr>
+        <tr><td style="padding:6px 10px;">999</td><td style="padding:6px 10px;">MGMT</td><td style="padding:6px 10px;">192.168.99.0/29</td><td style="padding:6px 10px;">192.168.199.0/29</td><td style="padding:6px 10px;">Управление</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">DMZ и особенность в Cisco PT</h3>
+    <p style="margin:0 0 8px;font-size:0.9rem;line-height:1.6;color:#333;">DMZ для публичных сервисов: HTTP, HTTPS, FTP, EMAIL. Static NAT: 172.16.1.3 (B1) / 172.16.2.3 (B2).</p>
+    <p style="margin:0;font-size:0.9rem;line-height:1.6;color:#333;"><b>Особенность ASA 5505 Base:</b> <code>no forward interface Vlan1</code> блокирует прямой трафик inside→DMZ. В реальном проекте — UserGate F100 без этого ограничения.</p>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Связность между зданиями</h3>
+    <p style="margin:0;font-size:0.9rem;line-height:1.6;color:#333;">GRE-туннель: B1-R1 (10.10.10.1) ↔ B2-R1 (10.10.10.2). OSPF распространяет маршруты автоматически.</p>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Реализованные сервисы</h3>
+    <ul class="defense-list">
+      <li><b>DHCP</b> — автовыдача IP, VLAN 200 и 300, ip helper-address</li>
+      <li><b>DNS</b> — corp.local → DMZ-сервер</li>
+      <li><b>NTP</b> — синхронизация времени</li>
+      <li><b>SYSLOG</b> — централизованный сбор логов</li>
+      <li><b>TFTP</b> — резервное копирование конфигураций</li>
+      <li><b>HTTP/HTTPS</b> — веб-сервер DMZ, 172.16.1.3</li>
+      <li><b>FTP</b> — файловый сервер DMZ</li>
+      <li><b>EMAIL</b> — SMTP/POP3 DMZ, corp.local</li>
+    </ul>
+  </div>
+  <div class="defense-card">
+    <h3 class="defense-card-title">Проверка связности</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+      <thead><tr style="background:var(--primary);color:#fff;">
+        <th style="padding:7px 10px;">Команда</th><th style="padding:7px 10px;">Что проверяет</th>
+      </tr></thead>
+      <tbody>
+        <tr style="background:#f9fafb;"><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;"><code>ping 192.168.140.1</code></td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">Связность через GRE</td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;"><code>show ip route</code></td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">Маршруты OSPF (O E2)</td></tr>
+        <tr style="background:#f9fafb;"><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;"><code>show ip ospf neighbor</code></td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">OSPF-сосед FULL</td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;"><code>show running-config | include helper</code></td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">DHCP-relay VLAN 200/300</td></tr>
+        <tr style="background:#f9fafb;"><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;"><code>show access-list</code></td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">ACL, hitcnt растёт</td></tr>
+        <tr><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">Браузер → <code>http://172.16.1.3</code></td><td style="padding:6px 10px;border-bottom:1px solid #e5e7eb;">HTTP-сервер DMZ</td></tr>
+        <tr style="background:#f9fafb;"><td style="padding:6px 10px;"><code>show vlan brief</code></td><td style="padding:6px 10px;">VLAN, порты назначены</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:var(--dark);font-size:0.95rem;margin:20px 0 12px;text-transform:uppercase;">Скриншоты настроенных сервисов</h3>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/dhcp.png" alt="DHCP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Настройка DHCP-сервера</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/dns.png" alt="DNS" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Настройка DNS-сервера</figcaption>
+    </figure>
+  </div>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/ntp.png" alt="NTP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Настройка NTP-сервера</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/tftp.png" alt="TFTP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Настройка TFTP-сервера</figcaption>
+    </figure>
+  </div>
+  <div class="defense-img-row">
+    <figure>
+      <img src="../картинки/fpt.png" alt="FTP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Настройка FTP-сервера</figcaption>
+    </figure>
+    <figure>
+      <img src="../картинки/http.png" alt="HTTP" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Настройка HTTP/HTTPS-сервера</figcaption>
+    </figure>
+  </div>
+  <div class="defense-img-row">
+    <figure style="max-width:50%;">
+      <img src="../картинки/email.png" alt="EMAIL" style="width:100%;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.12);">
+      <figcaption>Настройка EMAIL-сервера</figcaption>
+    </figure>
+  </div>
+</div>       </div>
+
+            <div class="right-sidebar">
+                <nav class="right-menu">
+                    <ul>
+<li><a href="defense_intro.html">ВВЕДЕНИЕ</a></li>
+<li><a href="defense_project.html">1 ПРОЕКТНАЯ ЧАСТЬ</a></li>
+<li><a href="defense_operation.html" class="active">2 ЭКСПЛУАТАЦИОННАЯ ЧАСТЬ</a></li>
+<li><a href="defense_economy.html">3 ЭКОНОМИЧЕСКАЯ ЧАСТЬ</a></li>
+<li><a href="defense_technology.html">4 ТЕХНОЛОГИИ WEB</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>Андреев Никита Александрович&nbsp;&nbsp;09.02.06. Сетевое и системное администрирование</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
